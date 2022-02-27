@@ -1,0 +1,19 @@
+header {
+    height: 2.5rem;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    & h1{
+        margin: 0;
+        padding: 0.5rem;
+    }
+}
+main{
+    background-color: rgb(230, 244, 245);
+    height: 100%;
+    padding: 0.5rem;
+}
+
+#location{
+    font-style: italic;
+}
