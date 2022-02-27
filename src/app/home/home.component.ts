@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LocationService } from '../shared/services/location.service';
 import { TimeService } from '../shared/services/time.service';
+import { IUserInterface } from "../shared/interfaces/user.interface"
 
 @Component({
   selector: 'app-home',
@@ -15,27 +17,50 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private location: LocationService,
-    private time: TimeService
+    private time: TimeService,
+    private route: ActivatedRoute,
+
   ) { }
 
- user = {
-    name:"Eduardo Bernardo",
-    location:"",
-  };
-  
-  serverTime!: number;
+  userName: string;
+  userID: any; 
+  clientTime!: number;
+  userLocation: any;
 
 
   ngOnInit(): void {
+    this.getUserId();
     this.getUserLocationFromService();
     this.getCurrentTimeDate()
   }
 
+  getUserId(){
+      this.setUserData(this.route.snapshot.paramMap.get('id'));    
+  }
+
+  setUserData(userID: any){
+    this.userID = userID
+    switch(Number(userID)) { 
+      case 1: { 
+        this.userName = 'Edu'
+         break; 
+      } 
+      case 2: { 
+        this.userName = 'Léia'
+         break; 
+      } 
+      default: { 
+        this.userName = 'Visitante'
+         break; 
+      } 
+   } 
+  }
+
   getUserLocationFromService(){
-    this.user.location = this.location.getUserLocation()
+    this.userLocation = this.location.getUserLocation()
   }
 
   getCurrentTimeDate(){
-    this.serverTime = this.time.getCurrentTime()
+    this.clientTime = this.time.getCurrentTime()
   }
 }

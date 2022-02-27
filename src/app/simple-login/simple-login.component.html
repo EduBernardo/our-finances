@@ -6,11 +6,8 @@
 </h1>
 
 <div id="buttons" class="fading">
-    <button type="button" value="Edu">
-        <img src="../../assets/img/edu.jpg" alt="" srcset="">
-    </button>
-    <button type="button" value="Léia">
-        <img src="../../assets/img/leia.jpg" alt="" srcset="">
+    <button type="button" *ngFor="let user of users" value= {{user.name}} (click)="verifyUser(user.id ,$event)">
+        <img src={{user.imgSrc}} alt="" srcset="">
     </button>
 </div>
 

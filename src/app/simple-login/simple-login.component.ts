@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-simple-login',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimpleLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: Router,
+  ) { }
+
+ users = [
+   {id:1, name: "Edu", imgSrc: "../../assets/img/edu.jpg"},
+   {id:2, name: "Léia", imgSrc: "../../assets/img/leia.jpg"},
+   
+ ]
 
   ngOnInit(): void {
   }
+
+  verifyUser(userId: number,event: MouseEvent){
+this.route.navigate(['home', userId])}
 
 }
