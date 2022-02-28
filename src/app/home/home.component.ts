@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LocationService } from '../shared/services/location.service';
 import { TimeService } from '../shared/services/time.service';
 import { IUserInterface } from "../shared/interfaces/user.interface"
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
     private location: LocationService,
     private time: TimeService,
     private route: ActivatedRoute,
+    private router: Router
 
   ) { }
 
@@ -62,5 +63,25 @@ export class HomeComponent implements OnInit {
 
   getCurrentTimeDate(){
     this.clientTime = this.time.getCurrentTime()
+  }
+
+  handleBottomBarClick(buttonClicked: string){
+    switch(buttonClicked) { 
+      case 'back': { 
+        window.history.back()
+         break; 
+      } 
+      case 'home': { 
+        window.location.reload()
+         break; 
+      }
+      case 'account': { 
+        this.router.navigate(['/'])
+         break; 
+      } 
+      default: { 
+         break; 
+      } 
+   } 
   }
 }
