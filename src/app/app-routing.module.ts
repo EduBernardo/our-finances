@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'', component: WelcomeModalComponent},
   {path:'login', component:SimpleLoginComponent},
   {path:'home/:id', component: HomeComponent},
-  {path:'allocation', component:ResourceAllocationComponent}
+  {path:'allocation/:id', component:ResourceAllocationComponent}
 ];
 
 @NgModule({

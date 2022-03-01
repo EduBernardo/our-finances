@@ -69,6 +69,22 @@ export class HomeComponent implements OnInit {
     this.clientTime = this.time.getCurrentTime()
   }
 
+  onMenuOptionClick(optionClicked: number){
+    switch(optionClicked) { 
+      case 1: { 
+        this.router.navigate(['allocation', this.userID])
+         break; 
+      } 
+      case 2: { 
+        this.router.navigate(['allocation', this.userID])
+         break; 
+      }
+      default: { 
+         break; 
+      } 
+   } 
+  }
+
   handleBottomBarClick(buttonClicked: string){
     switch(buttonClicked) { 
       case 'back': { 
