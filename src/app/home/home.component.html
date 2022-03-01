@@ -6,6 +6,12 @@
     <p>o que você deseja fazer agora?</p>
 </header>
 <main class="user-{{userID}} fading">
+    <menu>
+        <button type="button" *ngFor="let option of menuOptions" value= {{option.name}}>
+            <img src={{option.imgSrc}} alt="" srcset="">
+            <p>{{option.name}}</p>
+        </button>
+    </menu>
 
 <footer>
     <bottom-bar

@@ -2,6 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+p,h1 { font-family: 'Baloo 2', cursive;}
+.bold{ font-family: 'arista-pro-bold-regular', sans-serif; }
 
 .fading{
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */

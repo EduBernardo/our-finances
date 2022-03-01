@@ -35,3 +35,26 @@ footer{
     position: absolute;
     width: 100%;
 }
+
+menu{
+    padding: 0 0.5rem;
+    width: 90%;
+    margin-top: 2rem;
+    display: inline-flex;
+    justify-content: space-between;
+
+}
+
+button {
+    border: 0;
+    // border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    overflow: visible;
+    background-color: transparent;
+}
+
+img {
+    max-width: 113%;
+    max-height: 105%;
+}

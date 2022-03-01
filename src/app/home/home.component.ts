@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
   clientTime!: number;
   userLocation: any;
 
+  menuOptions = [
+    {id:1, name: "Alocação", imgSrc: "../../assets/img/chart-round-icon.png"},
+    {id:2, name: "Orçamento", imgSrc: "../../assets/img/chart-column-icon.png"},
+  ]
 
   ngOnInit(): void {
     this.getUserId();
