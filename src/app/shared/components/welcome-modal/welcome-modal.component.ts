@@ -14,7 +14,7 @@ export class WelcomeModalComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(()=>{
-    this.route.navigate(['login'])
+    // this.route.navigate(['login'])
     }, 2500)
   }
 
