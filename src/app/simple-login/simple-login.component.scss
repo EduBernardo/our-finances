@@ -8,6 +8,9 @@ main {
 h1{
 font-size: 1.8rem;
 font-weight: 300;
+& p{
+    font-weight: bolder;
+}
 }
 
 #buttons {
