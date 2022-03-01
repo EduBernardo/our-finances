@@ -20,9 +20,6 @@ export class SimpleLoginComponent implements OnInit {
  isLoaded = false;
 
   ngOnInit(): void {
-    setTimeout(()=>{
-      this.isLoaded = true
-    }, 2500)
   }
 
   verifyUser(userId: number,event: MouseEvent){

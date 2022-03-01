@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'welcome-modal',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: Router,
+  ) { }
 
   ngOnInit(): void {
+    setTimeout(()=>{
+    this.route.navigate(['login'])
+    }, 2500)
   }
 
 }

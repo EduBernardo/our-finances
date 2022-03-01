@@ -1,10 +1,12 @@
+import { WelcomeModalComponent } from './shared/components/welcome-modal/welcome-modal.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SimpleLoginComponent } from './simple-login/simple-login.component';
 
 const routes: Routes = [
-  {path:'', component: SimpleLoginComponent},
+  {path:'', component: WelcomeModalComponent},
+  {path:'login', component:SimpleLoginComponent},
   {path:'home/:id', component: HomeComponent}
 ];
 

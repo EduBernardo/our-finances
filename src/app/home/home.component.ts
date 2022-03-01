@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
          break; 
       }
       case 'account': { 
-        this.router.navigate(['/'])
+        this.router.navigate(['login'])
          break; 
       } 
       default: { 

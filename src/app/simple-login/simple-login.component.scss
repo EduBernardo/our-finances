@@ -65,5 +65,13 @@ p {
 #splash-screen{
     width: 50%;
     height: 50%;  
-    position: relative; 
+    position: absolute; 
+}
+
+showItem {
+display: block;
+}
+
+hideItem{
+    display: none;
 }
