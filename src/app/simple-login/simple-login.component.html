@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="isLoaded; else splashScreen ">
 <h1 class="fading">
     <p>Olá</p>
     <p>quem está acessando?</p> 
@@ -12,3 +12,11 @@
 </div>
 
 </main>
+
+<div id="splash-screen">
+    <ng-template  #splashScreen>
+        <welcome-modal>
+        </welcome-modal>
+    </ng-template>
+</div>
+
