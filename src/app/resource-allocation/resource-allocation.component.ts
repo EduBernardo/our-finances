@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ResourceAllocationComponent implements OnInit {
   userID: string | null;
+  chartUrl: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -15,7 +16,8 @@ export class ResourceAllocationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userID = this.route.snapshot.paramMap.get('id')
+    this.userID = this.route.snapshot.paramMap.get('id');
+    this.chartUrl = this.userID == '1' ? '../../assets/img/chart_dark_theme.png' : '../../assets/img/chart_light_theme.png';
   }
 
   handleBottomBarClick(buttonClicked: string){
