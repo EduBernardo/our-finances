@@ -1,9 +1,8 @@
 <main class="user-{{userID}} fading">
     <header>
         <h1>
-            <strong *ngIf="userName === 'Edu'">Bem Vindo</strong>
-            <strong *ngIf="userName !== 'Edu'">Bem Vinda</strong>
-            {{userName}}...
+            <strong *ngIf="userName === 'Edu'">Bem Vindo {{userName}}</strong>
+            <strong *ngIf="userName !== 'Edu'">Bem Vinda {{userName}}</strong>
         </h1>
         <p>o que você deseja fazer agora?</p>
     </header>

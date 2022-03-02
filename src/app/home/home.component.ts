@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
          break; 
       } 
       case 2: { 
-        this.router.navigate(['allocation', this.userID])
+        this.router.navigate(['budget', this.userID])
          break; 
       }
       default: { 
