@@ -1,12 +1,21 @@
-<header class="fading">
-    <h1>Bem vindo, {{userName}}...</h1>
-    <p>o que você deseja fazer agora?</p>
-</header>
 <main class="user-{{userID}} fading">
+    <header>
+        <h1>
+            <strong *ngIf="userName === 'Edu'">Bem Vindo {{userName}}</strong>
+            <strong *ngIf="userName !== 'Edu'">Bem Vinda {{userName}}</strong>
+        </h1>
+        <p>o que você deseja fazer agora?</p>
+    </header>
 
-<footer>
-    <bottom-bar
-    (buttonClicked)="handleBottomBarClick($event)">
-    </bottom-bar>
-</footer>
+    <menu>
+        <button type="button" *ngFor="let option of menuOptions" value={{option.name}} (click)="onMenuOptionClick(option.id)">
+            <img src={{option.imgSrc}} alt="" srcset="">
+            <p>{{option.name}}</p>
+        </button>
+    </menu>
+
+    <footer>
+        <bottom-bar (buttonClicked)="handleBottomBarClick($event)">
+        </bottom-bar>
+    </footer>
 </main>

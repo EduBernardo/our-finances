@@ -15,8 +15,9 @@ export class SimpleLoginComponent implements OnInit {
  users = [
    {id:1, name: "Edu", imgSrc: "../../assets/img/edu.jpg"},
    {id:2, name: "Léia", imgSrc: "../../assets/img/leia.jpg"},
-   
  ]
+
+ isLoaded = false;
 
   ngOnInit(): void {
   }

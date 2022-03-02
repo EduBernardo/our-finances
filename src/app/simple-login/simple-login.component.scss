@@ -8,6 +8,9 @@ main {
 h1{
 font-size: 1.8rem;
 font-weight: 300;
+& p{
+    font-weight: bolder;
+}
 }
 
 #buttons {
@@ -20,8 +23,8 @@ font-weight: 300;
 button {
     border: 0;
     border-radius: 50%;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     display: inline-block;
 }
@@ -56,4 +59,19 @@ p {
     margin: 0;
     font-size: 21px;
     text-align: center;
+}
+
+
+#splash-screen{
+    width: 50%;
+    height: 50%;  
+    position: absolute; 
+}
+
+showItem {
+display: block;
+}
+
+hideItem{
+    display: none;
 }

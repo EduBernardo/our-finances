@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
   clientTime!: number;
   userLocation: any;
 
+  menuOptions = [
+    {id:1, name: "Alocação", imgSrc: "../../assets/img/chart-round-icon.png"},
+    {id:2, name: "Orçamento", imgSrc: "../../assets/img/chart-column-icon.png"},
+  ]
 
   ngOnInit(): void {
     this.getUserId();
@@ -65,6 +69,22 @@ export class HomeComponent implements OnInit {
     this.clientTime = this.time.getCurrentTime()
   }
 
+  onMenuOptionClick(optionClicked: number){
+    switch(optionClicked) { 
+      case 1: { 
+        this.router.navigate(['allocation', this.userID])
+         break; 
+      } 
+      case 2: { 
+        this.router.navigate(['budget', this.userID])
+         break; 
+      }
+      default: { 
+         break; 
+      } 
+   } 
+  }
+
   handleBottomBarClick(buttonClicked: string){
     switch(buttonClicked) { 
       case 'back': { 
@@ -76,7 +96,7 @@ export class HomeComponent implements OnInit {
          break; 
       }
       case 'account': { 
-        this.router.navigate(['/'])
+        this.router.navigate(['login'])
          break; 
       } 
       default: { 

@@ -9,12 +9,18 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleLoginComponent } from './simple-login/simple-login.component';
+import { ResourceAllocationComponent } from './resource-allocation/resource-allocation.component';
+import { BudgetComponent } from './budget/budget.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SimpleLoginComponent
+    SimpleLoginComponent,
+    ResourceAllocationComponent,
+    BudgetComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
