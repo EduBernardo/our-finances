@@ -14,8 +14,8 @@ export class TimeService {
   }
 
   private verifyPeriodOfTheDay(hours: number): string {
-    let morning = (hours > 0 && hours < 12)
-    let afternoon = (hours > 12 && hours < 18)
+    let morning = (hours >= 0 && hours < 12)
+    let afternoon = (hours >= 12 && hours < 18)
     let periodOfTheDay: string
 
     if (morning) {
