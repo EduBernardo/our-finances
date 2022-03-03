@@ -6,6 +6,8 @@ import { SimpleLoginComponent } from './simple-login/simple-login.component';
 import { ResourceAllocationComponent } from './resource-allocation/resource-allocation.component';
 import { BudgetComponent } from './budget/budget.component';
 import { HistoryComponent } from './history/history.component';
+import { InvestimentsDashboardComponent } from './investiments-dashboard/investiments-dashboard.component';
+
 
 const routes: Routes = [
   {path:'', component: WelcomeModalComponent},
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path:'home/:id', component: HomeComponent},
   {path:'allocation/:id', component:ResourceAllocationComponent},
   {path:'budget/:id', component:BudgetComponent},
-  {path:'history/:id', component:HistoryComponent}
+  {path:'history/:id', component:HistoryComponent},
+  {path:'dashboard/:id', component:InvestimentsDashboardComponent}
+
 
 ];
 

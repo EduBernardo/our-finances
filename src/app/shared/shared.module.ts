@@ -4,11 +4,14 @@ import { WelcomeModalComponent } from './components/welcome-modal/welcome-modal.
 import { LocationService } from './services/location.service';
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 import { UserOptionsComponent } from '../user-options/user-options.component';
+import { HeaderComponent } from '../shared/components/header/header.component';
+
 
 let components = [
   WelcomeModalComponent,
   BottomBarComponent,
-  UserOptionsComponent
+  UserOptionsComponent,
+  HeaderComponent
 ]
 
 @NgModule({

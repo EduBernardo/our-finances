@@ -12,6 +12,7 @@ import { SimpleLoginComponent } from './simple-login/simple-login.component';
 import { ResourceAllocationComponent } from './resource-allocation/resource-allocation.component';
 import { BudgetComponent } from './budget/budget.component';
 import { HistoryComponent } from './history/history.component';
+import { InvestimentsDashboardComponent } from './investiments-dashboard/investiments-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HistoryComponent } from './history/history.component';
     SimpleLoginComponent,
     ResourceAllocationComponent,
     BudgetComponent,
-    HistoryComponent
+    HistoryComponent,
+    InvestimentsDashboardComponent
   ],
   imports: [
     BrowserModule,

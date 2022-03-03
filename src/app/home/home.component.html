@@ -1,11 +1,7 @@
 <main class="user-{{userID}} fading">
-    <header>
-        <h1>
-            <strong *ngIf="userName === 'Edu'">Bem Vindo {{userName}}</strong>
-            <strong *ngIf="userName !== 'Edu'">Bem Vinda {{userName}}</strong>
-        </h1>
-        <p>o que você deseja fazer agora?</p>
-    </header>
+    <app-header title="{{momentOfTheDay}} {{userName}}" 
+    subtitle="o que você deseja fazer agora?">
+    </app-header>
 
     <menu>
         <button type="button" *ngFor="let option of menuOptions" value={{option.name}} (click)="onMenuOptionClick(option.id)">
