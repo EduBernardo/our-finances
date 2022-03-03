@@ -1,1 +1,13 @@
-<p>investiments-dashboard works!</p>
+<main  class="user-{{userID}} fading">
+    <app-header title="Investimentos" 
+    subtitle="verifique onde estão alocados nossos investimentos">
+    </app-header>
+
+    <app-accordion></app-accordion>
+
+
+    <footer>
+        <bottom-bar [userID]="userID">
+        </bottom-bar>
+    </footer>
+</main>

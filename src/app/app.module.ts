@@ -13,6 +13,7 @@ import { ResourceAllocationComponent } from './resource-allocation/resource-allo
 import { BudgetComponent } from './budget/budget.component';
 import { HistoryComponent } from './history/history.component';
 import { InvestimentsDashboardComponent } from './investiments-dashboard/investiments-dashboard.component';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { InvestimentsDashboardComponent } from './investiments-dashboard/investi
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CdkAccordionModule,
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

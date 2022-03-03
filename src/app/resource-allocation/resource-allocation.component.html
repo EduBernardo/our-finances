@@ -11,11 +11,10 @@
         <img src="{{chartUrl}}" alt="" srcset="">
     </div>
 
-    <!-- criar o componente de visualizacao das divisoes -->
-
-
+   <app-accordion></app-accordion>
+   
     <footer>
-        <bottom-bar (buttonClicked)="handleBottomBarClick($event)">
+        <bottom-bar [userID]="userID">
         </bottom-bar>
     </footer>
 </main>

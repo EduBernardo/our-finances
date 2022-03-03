@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bottom-bar',
@@ -7,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class BottomBarComponent implements OnInit {
 
+  @Input() userID: string
   @Output() buttonClicked = new EventEmitter<string>();
 
   buttons = [
@@ -14,12 +16,31 @@ export class BottomBarComponent implements OnInit {
     {icon: "home", name:'home'},
     {icon: "account_circle", name:'account'},
   ]
-  constructor() { }
+  constructor(
+    private router : Router
+  ) { }
 
   ngOnInit(): void {
   }
 
-  emitButtonClicked(buttonName: string, event: MouseEvent){
-    this.buttonClicked.emit(buttonName)
+  emitButtonClicked(buttonClicked: string){
+    // this.buttonClicked.emit(buttonName)
+      switch(buttonClicked) { 
+        case 'back': { 
+          window.history.back()
+           break; 
+        } 
+        case 'home': { 
+          this.router.navigate(['home', this.userID])
+           break; 
+        }
+        case 'account': { 
+          this.router.navigate(['login'])
+           break; 
+        } 
+        default: { 
+           break; 
+        } 
+     } 
   }
 }

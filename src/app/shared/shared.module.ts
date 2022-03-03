@@ -5,20 +5,27 @@ import { LocationService } from './services/location.service';
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 import { UserOptionsComponent } from '../user-options/user-options.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
+import { AccordionComponent } from '../shared/components/accordion/accordion.component';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+
 
 
 let components = [
   WelcomeModalComponent,
   BottomBarComponent,
   UserOptionsComponent,
-  HeaderComponent
+  HeaderComponent,
+  AccordionComponent
+]
+
+let modules = [
+  CommonModule,
+  CdkAccordionModule
 ]
 
 @NgModule({
   declarations: components,
-  imports: [
-    CommonModule
-  ],
+  imports: modules,
   providers:[
     LocationService
   ],

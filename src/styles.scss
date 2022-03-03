@@ -55,3 +55,31 @@ header {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+// estilização base das telas
+
+main {
+    padding: 0.5rem;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.user-1{
+    background-color: #74898a
+
+}
+
+.user-2{
+    background-color: #ffffff;
+}
+
+img{
+    max-width: 102%;
+}
+
+footer{
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}

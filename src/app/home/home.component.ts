@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     {id:1, name: "Alocação", imgSrc: "../../assets/img/chart-round-icon.png"},
     {id:2, name: "Orçamento", imgSrc: "../../assets/img/chart-column-icon.png"},
     {id:3, name: "Histórico", imgSrc: "../../assets/img/chart-history-icon.png"},
-    {id:4, name: "Investimentos", imgSrc: "../../assets/img/chart-investments-logo.png"},
+    {id:4, name: "Investimentos", imgSrc: "../../assets/img/pig-investiments-logo.png"},
 
   ]
  
@@ -90,26 +90,6 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['dashboard', this.userID])
          break; 
       }
-      default: { 
-         break; 
-      } 
-   } 
-  }
-
-  handleBottomBarClick(buttonClicked: string){
-    switch(buttonClicked) { 
-      case 'back': { 
-        window.history.back()
-         break; 
-      } 
-      case 'home': { 
-        window.location.reload()
-         break; 
-      }
-      case 'account': { 
-        this.router.navigate(['login'])
-         break; 
-      } 
       default: { 
          break; 
       } 

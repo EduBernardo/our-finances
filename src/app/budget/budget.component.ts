@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BudgetComponent implements OnInit {
 
-  userID: string | null;
+  userID: any;
   chartUrl: string;
 
   constructor(
@@ -21,23 +21,4 @@ export class BudgetComponent implements OnInit {
     this.chartUrl = this.userID == '1' ? '../../assets/img/chart_dark_theme.png' : '../../assets/img/chart_light_theme.png';
   }
 
-  handleBottomBarClick(buttonClicked: string){
-    switch(buttonClicked) { 
-      case 'back': { 
-        window.history.back()
-         break; 
-      } 
-      case 'home': { 
-        this.router.navigate(['home', this.userID])
-         break; 
-      }
-      case 'account': { 
-        this.router.navigate(['login'])
-         break; 
-      } 
-      default: { 
-         break; 
-      } 
-   } 
-  }
 }

@@ -1,40 +1,4 @@
 @import '../../styles.scss';
 
 
-main {
-    padding: 0.5rem;
-    height: 100%;
-    width: 100%;
-    display: block;
-}
 
-.user-1{
-    background-color: #74898a
-
-}
-
-.user-2{
-    background-color: #ffffff;
-}
-
-header {
-    height: 2.5rem;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    & h1{
-        margin: 0;
-       
-    }
-}
-
-img{
-    max-width: 102%;
-}
-
-footer{
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-}
