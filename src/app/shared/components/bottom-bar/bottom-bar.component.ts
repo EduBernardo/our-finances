@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'bottom-bar',
@@ -17,7 +19,8 @@ export class BottomBarComponent implements OnInit {
     {icon: "account_circle", name:'account'},
   ]
   constructor(
-    private router : Router
+    private router : Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -35,12 +38,21 @@ export class BottomBarComponent implements OnInit {
            break; 
         }
         case 'account': { 
-          this.router.navigate(['login'])
+          // this.router.navigate(['login'])
+          this.openDialog()
            break; 
         } 
         default: { 
            break; 
         } 
      } 
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

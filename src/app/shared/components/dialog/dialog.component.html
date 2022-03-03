@@ -1,0 +1,16 @@
+<app-header title="Opções" 
+subtitle="">
+</app-header>
+<mat-dialog-content class="mat-typography">
+  <span *ngFor="let button of buttons" class="material-icons" (click)="emitButtonClicked(button.id)">
+    <span>{{button.icon}}</span>
+    <p>{{button.name}}</p> 
+</span>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>
+    <p>fechar</p>
+  </button>
+</mat-dialog-actions>

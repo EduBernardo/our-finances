@@ -1,0 +1,40 @@
+@import '../../../../styles.scss';
+ 
+// :host(app-header){
+//     header {padding: 0;}
+// }
+
+app-heade{
+    padding: -0.5rem;
+}
+
+mat-dialog-content{
+    display: grid;
+    width: 100%;
+
+}
+span{
+    display: inline-flex;
+    margin-bottom: 5%;
+    &>span{
+        font-size: 1.8rem;
+        margin: 0;
+    }
+    
+}
+
+span > p {
+    margin-left: 10%;
+    margin-top: 7%;
+    font-size: 0.8rem;
+}
+
+button {
+    background-color: transparent;
+    border-radius: 16%;
+    height: 1.8rem;
+}
+
+button > p {
+color:#fff
+}

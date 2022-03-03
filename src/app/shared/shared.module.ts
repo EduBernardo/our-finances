@@ -7,6 +7,9 @@ import { UserOptionsComponent } from '../user-options/user-options.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { AccordionComponent } from '../shared/components/accordion/accordion.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
+
 
 
 
@@ -15,12 +18,14 @@ let components = [
   BottomBarComponent,
   UserOptionsComponent,
   HeaderComponent,
-  AccordionComponent
+  AccordionComponent,
+  DialogComponent
 ]
 
 let modules = [
   CommonModule,
-  CdkAccordionModule
+  CdkAccordionModule,
+  MatDialogModule
 ]
 
 @NgModule({
