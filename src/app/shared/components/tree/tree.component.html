@@ -4,8 +4,9 @@
                    [style.display]="shouldRender(node) ? 'flex' : 'none'"
                    class="example-tree-node">
       <!-- use a disabled button to provide padding for tree leaf -->
-      <button mat-icon-button disabled></button>
+      <button mat-icon-button disabled>
       <h3><p>{{node.name}}</p></h3>
+    </button>
     </cdk-tree-node>
     <!-- This is the tree node template for expandable nodes -->
     <cdk-tree-node *cdkTreeNodeDef="let node; when: hasChild" cdkTreeNodePadding

@@ -1,7 +1,16 @@
 @import '../../styles.scss';
 
+h2{
+    margin-top: -53px;
+    padding-left: 8px;
+}
+
 div#tree{
     padding: 0.5rem;
-    margin-top: -53px;
+    margin-top: -20px;
+    height:30%;
+    overflow:scroll;
 }
+
+
 
