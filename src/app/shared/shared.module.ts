@@ -9,6 +9,9 @@ import { AccordionComponent } from '../shared/components/accordion/accordion.com
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import { TreeComponent } from './components/tree/tree.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -19,13 +22,17 @@ let components = [
   UserOptionsComponent,
   HeaderComponent,
   AccordionComponent,
-  DialogComponent
+  DialogComponent,
+  TreeComponent
 ]
 
 let modules = [
   CommonModule,
   CdkAccordionModule,
-  MatDialogModule
+  MatDialogModule,
+  CdkTreeModule,
+  MatIconModule
+  
 ]
 
 @NgModule({
