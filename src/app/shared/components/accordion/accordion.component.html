@@ -1,7 +1,7 @@
  <!-- criar o componente de visualizacao das divisoes -->
  <cdk-accordion class="example-accordion">
     <cdk-accordion-item
-      *ngFor="let item of items; let index = index;"
+      *ngFor="let bank of items; let index = index;"
       #accordionItem="cdkAccordionItem"
       class="example-accordion-item"
       role="button"
@@ -9,21 +9,29 @@
       [attr.id]="'accordion-header-' + index"
       [attr.aria-expanded]="accordionItem.expanded"
       [attr.aria-controls]="'accordion-body-' + index">
-      <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-        {{ item }}
+
+
+      <div class="example-accordion-item-header bank-{{bank.id}}-{{accordionItem.expanded}} " (click)="accordionItem.toggle()">
+        <span>
+        <span id="img-span">
+          <img src={{bank.imgSrc}} alt="" srcset="">
+        </span>
+        <!-- <p>{{bank.name}}</p> -->
+      </span>
+
         <span class="example-accordion-item-description">
           Click to {{ accordionItem.expanded ? 'close' : 'open' }}
         </span>
       </div>
+
+
       <div
         class="example-accordion-item-body"
         role="region"
         [style.display]="accordionItem.expanded ? '' : 'none'"
         [attr.id]="'accordion-body-' + index"
         [attr.aria-labelledby]="'accordion-header-' + index">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-        excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-        veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
+          {{bank.purpose}}
       </div>
     </cdk-accordion-item>
   </cdk-accordion>

@@ -24,14 +24,13 @@
     color: #999;
   }
   
-  .example-accordion-item-header,
-  .example-accordion-item-body {
-    padding: 16px;
+  .example-accordion-item-header {
+    padding: 0px 10px;
+    place-items: center;
   }
-  
-  .example-accordion-item-header:hover {
-    cursor: pointer;
-    background-color: #eee;
+
+  .example-accordion-item-body{
+    padding: 1rem;
   }
   
   .example-accordion-item:first-child {
@@ -44,4 +43,34 @@
     border-bottom-right-radius: 4px;
   }
   
+div.example-accordion-item-header>span {
+display: flex;
+}
 
+img {
+  max-width: 36%;
+}
+
+.bank-itau-true {
+  background-color: #EC7000;
+}
+
+.bank-picpay-true {
+  background-color: #77dd77;
+}
+
+.bank-mercadoPago-true {
+  background-color: #eee;
+}
+
+.bank-nuBank-true {
+  background-color: #993399 ;
+}
+
+.bank-nuInvest-true {
+  background-color: #800080;
+}
+
+.bank-mercadoBitcoin-true {
+  background-color: #303030;
+}
