@@ -45,7 +45,7 @@ export class ChartComponent implements OnInit {
           ],
           borderJoinStyle:'round',
           borderColor:'rgba(0, 0, 0, 0)',
-          hoverOffset: 3,
+          hoverOffset: 5,
         }]
       },
       options:{
