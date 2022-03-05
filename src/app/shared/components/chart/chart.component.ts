@@ -44,8 +44,8 @@ export class ChartComponent implements OnInit {
             'rgba(175,171,170,255)'
           ],
           borderJoinStyle:'round',
-          hoverOffset: 6,
-          borderRadius:8
+          borderColor:'rgba(0, 0, 0, 0)',
+          hoverOffset: 3,
         }]
       },
       options:{
@@ -54,7 +54,20 @@ export class ChartComponent implements OnInit {
             display:false,
           },
           tooltip:{
-            
+            callbacks: {
+              label: function(context) {
+                  let label = context.label || '';
+
+                  if (label) {
+                    label += ': ';
+                }
+
+                  if (context.parsed !== null) {
+                      label += context.parsed +' %';
+                  }
+                  return label;
+              }
+            }
           }
         }
       }
