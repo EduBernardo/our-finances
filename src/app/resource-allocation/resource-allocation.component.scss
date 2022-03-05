@@ -1,16 +1,32 @@
 @import '../../styles.scss';
 
 h2{
-    margin-top: -53px;
+    margin-bottom: 0;
     padding-left: 8px;
+    &>p{
+    margin-bottom: 0;
+
+    }
+}
+
+div#chart{
+    position: relative; 
+    top: 1rem;
+    height:47vh; 
+    width:94vw;
+    align-items: center;
 }
 
 div#tree{
-    padding: 0.5rem;
-    margin-top: -20px;
-    height:30%;
-    overflow:scroll;
+    position: relative;
+    top: 1rem;
 }
 
+#scroll-area{
+    position: fixed;
+    padding: 0.5rem;
+    height:30vh;
+    overflow:scroll;
+}
 
 

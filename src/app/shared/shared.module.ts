@@ -12,6 +12,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import { TreeComponent } from './components/tree/tree.component';
 import {MatIconModule} from '@angular/material/icon';
+import { ChartComponent } from './components/chart/chart.component';
 
 
 
@@ -23,7 +24,8 @@ let components = [
   HeaderComponent,
   AccordionComponent,
   DialogComponent,
-  TreeComponent
+  TreeComponent,
+  ChartComponent
 ]
 
 let modules = [

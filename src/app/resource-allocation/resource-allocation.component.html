@@ -1,21 +1,23 @@
-<main  class="user-{{userID}} fading">
-    <app-header title="Alocação dos recursos" 
-    subtitle="esse é o padrão de distribuição da nossa renda">
+<main class="user-{{userID}} fading">
+    <app-header title="Alocação dos recursos" subtitle="esse é o padrão de distribuição da nossa renda">
     </app-header>
 
     <!-- componentizar o chart -->
-    <div>
-        <img src="{{chartUrl}}" alt="" srcset="">
+    <div id="chart">
+        <!-- <img src="{{chartUrl}}" alt="" srcset=""> -->
+        <app-chart></app-chart>
     </div>
 
-    <h2>
-        <p> Divisões:</p>   
-        </h2>
+
     <div id="tree">
-
-        <app-tree></app-tree>
+        <h2>
+            <p> Divisões:</p>
+        </h2>
+        <div id="scroll-area">
+            <app-tree></app-tree>
+        </div>
     </div>
-   
+
     <footer>
         <bottom-bar [userID]="userID">
         </bottom-bar>
