@@ -5,7 +5,9 @@
     <!-- componentizar o chart -->
     <div id="chart">
         <!-- <img src="{{chartUrl}}" alt="" srcset=""> -->
-        <app-chart></app-chart>
+        <app-chart
+        (labelSelected)="setChartLabelSelectedValue($event)"
+        ></app-chart>
     </div>
 
 
@@ -14,7 +16,10 @@
             <p> Divisões:</p>
         </h2>
         <div id="scroll-area">
-            <app-tree></app-tree>
+            <app-tree
+            #labelsTree
+            (chartLabelSelected)="chartLabelSelected"
+            ></app-tree>
         </div>
     </div>
 

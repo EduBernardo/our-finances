@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -7,6 +7,7 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
+  @Output() labelSelected = new EventEmitter<string>();
 
   constructor() { }
 
@@ -20,7 +21,7 @@ export class ChartComponent implements OnInit {
           'Necessidades Básicas',
           'Doações',
           'Investimentos',
-          'Longo Prazo',
+          'Despesas de Longo Prazo',
           'Diversão',
           'Instrução'
         ],
@@ -69,7 +70,10 @@ export class ChartComponent implements OnInit {
               }
             }
           }
-        }
+        },
+        onClick: (event_, elements_, chart) =>{
+          this.labelSelected.emit(chart.tooltip?.dataPoints[0].label)
+       }
       }
     });
   }

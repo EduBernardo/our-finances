@@ -19,14 +19,20 @@ div#chart{
 
 div#tree{
     position: relative;
-    top: 1rem;
+    top: 2rem;
 }
 
 #scroll-area{
     position: fixed;
     padding: 0.5rem;
-    height:30vh;
+    height:27vh;
     overflow:scroll;
+    width: 80%;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 

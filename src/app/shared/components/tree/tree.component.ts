@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {ArrayDataSource} from '@angular/cdk/collections';
 import {FlatTreeControl} from '@angular/cdk/tree';
 
@@ -137,9 +137,13 @@ interface ExampleFlatNode {
 })
 export class TreeComponent implements OnInit {
 
+  @Input() chartLabelSelected: string
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.chartLabelSelected)
+
   }
   treeControl = new FlatTreeControl<ExampleFlatNode>(
     node => node.level,
@@ -171,6 +175,11 @@ export class TreeComponent implements OnInit {
       parent = this.getParentNode(parent);
     }
     return true;
+  }
+
+  clickTreeNodeSelectedByChart(buttonId: string){
+   let button = document.getElementById(buttonId)
+   button?.click()
   }
 
 }
