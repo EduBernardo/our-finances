@@ -142,9 +142,8 @@ export class TreeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.chartLabelSelected)
-
   }
+  
   treeControl = new FlatTreeControl<ExampleFlatNode>(
     node => node.level,
     node => node.expandable,
