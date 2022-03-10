@@ -68,6 +68,8 @@ export class ChartComponent implements OnInit {
         }]
       },
       options: {
+        responsive:true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: false,
@@ -111,16 +113,34 @@ export class ChartComponent implements OnInit {
           data: [37, 85],
           backgroundColor: [
             'rgba(0,156,73,255)',
-            'rgba(51,80,184,255)'
+            'rgba(254,0,0,255)',
           ],
           hoverBackgroundColor: [
             'rgba(0,156,73,255)',
-            'rgba(51,80,184,255)',
+            'rgba(254,0,0,255)',
           ],
           borderColor: 'rgba(0, 0, 0, 0)',
+          borderRadius: 8
         }]
       },
       options: {
+        responsive:true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            grid: {
+              display: false
+            },
+          },
+          y: {
+            ticks:{
+              display:false
+            },
+            grid: {
+              display: false
+            }
+        }
+      },
         plugins: {
           legend: {
             display: false,
@@ -128,15 +148,7 @@ export class ChartComponent implements OnInit {
           tooltip: {
             callbacks: {
               label: function (context) {
-                let label = context.label || '';
-
-                if (label) {
-                  label += ': ';
-                }
-
-                if (context.parsed !== null) {
-                  label += context.parsed + ' %';
-                }
+                let label =  ' R$'+ context.formattedValue;
                 return label;
               }
             }
