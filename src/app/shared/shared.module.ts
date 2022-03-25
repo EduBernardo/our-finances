@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WelcomeModalComponent } from './components/welcome-modal/welcome-modal.component';
 import { LocationService } from './services/location.service';
 import { BroadcastService } from './services/broadcast.service';
+import { NavigationService } from './services/navigation.service';
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 import { UserOptionsComponent } from '../user-options/user-options.component';
 import { HeaderComponent } from '../shared/components/header/header.component';
@@ -41,12 +42,10 @@ let modules = [
 
 let services = [
   LocationService,
-  BroadcastService
+  BroadcastService,
+  NavigationService
 ]
 
-// let directives = [
-//   ThemeDirective
-// ]
 
 @NgModule({
   declarations: components,

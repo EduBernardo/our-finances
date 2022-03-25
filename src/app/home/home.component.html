@@ -4,14 +4,14 @@
     </app-header>
 
     <menu>
-        <button type="button" *ngFor="let option of menuOptions" value={{option.name}} (click)="onMenuOptionClick(option.id)">
+        <button type="button" *ngFor="let option of menuOptions" value={{option.name}} (click)="onMenuOptionClick(option.redirectTo)">
             <img src={{option.imgSrc}} alt="" srcset="">
             <p>{{option.name}}</p>
         </button>
     </menu>
 
     <footer>
-        <bottom-bar [userID]="userID">
+        <bottom-bar>
         </bottom-bar>
     </footer>
 </main>

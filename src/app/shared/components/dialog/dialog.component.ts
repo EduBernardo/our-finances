@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { themes, UserThemeService } from '../../services/user-theme.service'
+import { themes, UserThemeService } from '../../services/user-theme.service';
+import { NavigationService } from '../../services/navigation.service';
+
 
 @Component({
   selector: 'app-dialog',
@@ -9,8 +10,8 @@ import { themes, UserThemeService } from '../../services/user-theme.service'
 })
 export class DialogComponent implements OnInit {
   buttons = [
-    {icon: "social_distance", id:'changeUser', name:'Mudar usuário'},
-    {icon: "color_lens", id:'changeTheme', name:'Mudar tema'},
+    {icon: "social_distance", id:'changeUser', name:'Trocar usuário'},
+    {icon: "color_lens", id:'changeTheme', name:'Trocar tema'},
   ]
 
   get activeTheme(){
@@ -18,8 +19,8 @@ export class DialogComponent implements OnInit {
   }
 
   constructor(
-    private router : Router,
-    private themeService: UserThemeService
+    private themeService: UserThemeService,
+    private navigate: NavigationService
   ) { }
 
   ngOnInit(): void {
@@ -42,7 +43,7 @@ export class DialogComponent implements OnInit {
 
   navigateToLogin(){
     document.getElementById('dialogCloseButton')?.click()
-    this.router.navigate(['login'])
+    this.navigate.navigateTo('login', this);
   }
 
   changeUserTheme(){
@@ -56,6 +57,5 @@ export class DialogComponent implements OnInit {
         break;
       }
     }
-    console.log(this.themeService.theme)
   }
 }

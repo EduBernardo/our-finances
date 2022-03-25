@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'welcome-modal',
@@ -9,12 +10,12 @@ import { Router } from '@angular/router';
 export class WelcomeModalComponent implements OnInit {
 
   constructor(
-    private route: Router,
+    private navigate: NavigationService
   ) { }
 
   ngOnInit(): void {
     setTimeout(()=>{
-    this.route.navigate(['login'])
+      this.navigate.navigateTo('login');
     }, 2500)
   }
 

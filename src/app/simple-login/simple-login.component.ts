@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DialogComponent } from '../shared/components/dialog/dialog.component';
+import { NavigationService } from '../shared/services/navigation.service';
 
 @Component({
   selector: 'app-simple-login',
@@ -10,6 +12,7 @@ export class SimpleLoginComponent implements OnInit {
 
   constructor(
     private route: Router,
+    private navigate: NavigationService
   ) { }
 
  users = [
@@ -20,9 +23,26 @@ export class SimpleLoginComponent implements OnInit {
  isLoaded = false;
 
   ngOnInit(): void {
+      this.verifyPreviousUserSelection()
   }
 
-  verifyUser(userId: number,event: MouseEvent){
-this.route.navigate(['home', userId])}
+  verifyPreviousUserSelection(){
+    let user = localStorage.getItem("user-selected");
+    let cameFromDialog = this.navigate.caller instanceof DialogComponent
+    if (user !== '' && !cameFromDialog){
+      this.navigateToHome()
+    } else {
+      return
+    }
+  }
+
+  setUser(userId: number){
+    localStorage.setItem("user-selected",String(userId))
+    this.navigateToHome()
+  }
+
+  navigateToHome(){
+    this.navigate.navigateTo('home');
+  }
 
 }

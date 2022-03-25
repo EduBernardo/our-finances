@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NavigationService } from '../../services/navigation.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -10,7 +11,6 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class BottomBarComponent implements OnInit {
 
-  @Input() userID: string
   @Output() buttonClicked = new EventEmitter<string>();
 
   buttons = [
@@ -20,7 +20,9 @@ export class BottomBarComponent implements OnInit {
   ]
   constructor(
     private router : Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private navigate: NavigationService
+
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class BottomBarComponent implements OnInit {
            break; 
         } 
         case 'home': { 
-          this.router.navigate(['home', this.userID])
+          this.navigate.navigateTo(buttonClicked)
            break; 
         }
         case 'account': { 
