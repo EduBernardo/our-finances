@@ -40,7 +40,6 @@ export class BottomBarComponent implements OnInit {
            break; 
         }
         case 'account': { 
-          // this.router.navigate(['login'])
           this.openDialog()
            break; 
         } 
