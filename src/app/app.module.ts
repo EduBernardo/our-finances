@@ -8,22 +8,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SimpleLoginComponent } from './simple-login/simple-login.component';
-import { ResourceAllocationComponent } from './resource-allocation/resource-allocation.component';
-import { BudgetComponent } from './budget/budget.component';
-import { HistoryComponent } from './history/history.component';
-import { InvestimentsDashboardComponent } from './investiments-dashboard/investiments-dashboard.component';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SimpleLoginComponent,
-    ResourceAllocationComponent,
-    BudgetComponent,
-    HistoryComponent,
-    InvestimentsDashboardComponent
   ],
   imports: [
     BrowserModule,

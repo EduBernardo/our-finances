@@ -2,21 +2,15 @@ import { WelcomeModalComponent } from './shared/components/welcome-modal/welcome
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SimpleLoginComponent } from './simple-login/simple-login.component';
-import { ResourceAllocationComponent } from './resource-allocation/resource-allocation.component';
-import { BudgetComponent } from './budget/budget.component';
-import { HistoryComponent } from './history/history.component';
-import { InvestimentsDashboardComponent } from './investiments-dashboard/investiments-dashboard.component';
-
 
 const routes: Routes = [
   {path:'', component: WelcomeModalComponent},
-  {path:'login', component:SimpleLoginComponent},
-  {path:'home/:id', component: HomeComponent},
-  {path:'allocation/:id', component:ResourceAllocationComponent},
-  {path:'budget/:id', component:BudgetComponent},
-  {path:'history/:id', component:HistoryComponent},
-  {path:'dashboard/:id', component:InvestimentsDashboardComponent}
+  {path:'home/:id', component: HomeComponent}, 
+  { path: 'budget/:id', loadChildren: () => import('./budget/budget.module').then(m => m.BudgetModule) },
+  { path: 'history/:id', loadChildren: () => import('./history/history.module').then(m => m.HistoryModule) },
+  { path: 'dashboard/:id', loadChildren: () => import('./investiments-dashboard/investiments-dashboard.module').then(m => m.InvestimentsDashboardModule) },
+  { path: 'allocation/:id', loadChildren: () => import('./resource-allocation/resource-allocation.module').then(m => m.ResourceAllocationModule) },
+  { path: 'login', loadChildren: () => import('./simple-login/simple-login.module').then(m => m.SimpleLoginModule) }
 
 
 ];
