@@ -51,7 +51,7 @@ export class BottomBarComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
     });
   }

@@ -14,6 +14,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import { TreeComponent } from './components/tree/tree.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ChartComponent } from './components/chart/chart.component';
+import { ThemeDirective } from './directives/theme.directive'
 
 
 
@@ -26,7 +27,8 @@ let components = [
   AccordionComponent,
   DialogComponent,
   TreeComponent,
-  ChartComponent
+  ChartComponent,
+  ThemeDirective
 ]
 
 let modules = [
@@ -41,6 +43,10 @@ let services = [
   LocationService,
   BroadcastService
 ]
+
+// let directives = [
+//   ThemeDirective
+// ]
 
 @NgModule({
   declarations: components,
