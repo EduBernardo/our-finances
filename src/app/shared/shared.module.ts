@@ -18,8 +18,6 @@ import { ChartComponent } from './components/chart/chart.component';
 import { ThemeDirective } from './directives/theme.directive'
 
 
-
-
 let components = [
   WelcomeModalComponent,
   BottomBarComponent,
@@ -37,13 +35,13 @@ let modules = [
   CdkAccordionModule,
   MatDialogModule,
   CdkTreeModule,
-  MatIconModule
+  MatIconModule,
 ]
 
 let services = [
   LocationService,
   BroadcastService,
-  NavigationService
+  NavigationService,
 ]
 
 

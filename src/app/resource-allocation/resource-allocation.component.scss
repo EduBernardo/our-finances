@@ -9,6 +9,10 @@ h2{
     }
 }
 
+section {
+    margin-top: 2rem;
+}
+
 div#chart{
     position: relative; 
     top: 1rem;
@@ -32,5 +36,63 @@ div#tree{
         display: none;
     }
 }
+
+div#input-area {
+    padding: 1rem;
+    position: inherit;
+    border-radius: 17px;
+    border: solid #6ce5e8;
+}
+
+
+::ng-deep .example-form {
+    .mat-focused .mat-form-field-ripple {
+      /*change color of underline when focused*/
+      background-color: #6ce5e8 ;
+    }
+    .mat-focused .mat-form-field-label {
+      /*change color of label when focused*/
+      color: #6ce5e8 ;
+     }
+
+     .mat-form-field-label {
+        /*change color of label when focused*/
+        color: #6ce5e8 ;
+       }
+  }
+
+::ng-deep #slide-toggle {
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+        background-color:#6ce5e8;
+    }
+}
+
+div#submit-button{
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+button {
+    border-radius: 17px;
+    background-color: transparent;
+    height: 2rem;
+    width: 40%;
+}
+
+ul {
+    padding: 0;
+}
+li.list-item {
+    display: flex;
+    width: 90%;
+    height: 1.3rem;
+    padding: 0rem 1rem;
+    border-bottom: solid #000000 1px;
+    align-items: flex-end;
+    &>span:first-child {
+        flex: 70%;
+    }
+}
+
 
 

@@ -1,27 +1,75 @@
 <main class="fading" Theme>
-    <app-header title="Alocação dos recursos" subtitle="esse é o padrão de distribuição da nossa renda">
+    <app-header title="Alocação dos recursos" subtitle="esse é o padrão de
+        distribuição da nossa renda">
     </app-header>
 
-    <!-- componentizar o chart -->
-    <div id="chart">
-        <app-chart
-        chartType="doughnut"
-        (labelSelected)="setChartLabelSelectedValue($event)"
-        ></app-chart>
-    </div>
+    <section id="distribution-table-section">
+        <div id="input-area">
+            <div id="income-value">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width"
+                        appearance="fill">
+                        <mat-label>Valor da renda</mat-label>
+                        <span matPrefix>R$ &nbsp;</span>
+                        <input type="tel" matInput placeholder="100,00"
+                            [(ngModel)]="incomeValue"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </form>
+            </div>
 
+            <div id="deductions-value" *ngIf="hasDiscounts">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width"
+                        appearance="fill">
+                        <mat-label>Valor do disconto</mat-label>
+                        <span matPrefix>R$ &nbsp;</span>
+                        <input type="tel" matInput 
+                            placeholder="100,00"
+                            [(ngModel)]="deductionValue"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </form>
+            </div>
+            <span id="slide-toggle">
+                <mat-slide-toggle color="#6ce5e8" [(ngModel)]="hasDiscounts">
+                    possuí descontos </mat-slide-toggle>
+            </span>
+            <br>
 
-    <div id="tree">
-        <h2>
-            <p> Divisões:</p>
-        </h2>
-        <div id="scroll-area">
-            <app-tree
-            #labelsTree
-            (chartLabelSelected)="chartLabelSelected"
-            ></app-tree>
+            <div id="submit-button">
+                <button (click)="updateIncomeValue($event)">{{inputButtonLabel}}</button>
+            </div>
         </div>
-    </div>
+
+
+        <div id="distribution-area" *ngIf="showDistributionTable">
+            <div id="distribution-table">
+                <ul class="">
+                    <li class="list-item" *ngFor="let item of allocationItems"> <span> {{item.name}} </span> <span>R$ {{ getAllocationItemValue(item.tax) }}</span></li>
+    
+                </ul>
+            </div>
+
+            <div id="allocation-chart" >
+                <!-- componentizar o chart -->
+                <div id="chart">
+                    <app-chart chartType="doughnut"
+                        (labelSelected)="setChartLabelSelectedValue($event)"></app-chart>
+                </div>
+        
+                <!--div id="tree">
+                    <h2>
+                        <p> Divisões:</p>
+                    </h2>
+                    <div id="scroll-area">
+                        <app-tree #labelsTree (chartLabelSelected)="chartLabelSelected"></app-tree>
+                    </div>
+                </div-->
+            </div>
+        </div>
+
+    </section>
 
     <footer>
         <bottom-bar>
