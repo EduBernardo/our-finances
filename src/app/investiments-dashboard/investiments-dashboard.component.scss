@@ -7,7 +7,7 @@ div{
 }
 
 span{
-    padding: 1rem 0 0 1rem;
+    padding: 1rem 1rem 0 1rem;
     width: 80%;
     display: flex;
     border-radius: 17px 17px 0 0;
@@ -15,7 +15,7 @@ span{
     border-right-width: 6.7px;
     border-bottom: 0;
     margin-bottom: -1px;
-    &>p{
+    &>p:first-child{
         flex: 70%;
     }
 }
