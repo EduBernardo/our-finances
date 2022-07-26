@@ -5,7 +5,6 @@ import { InvestimentsDashboardRoutingModule } from './investiments-dashboard-rou
 import { InvestimentsDashboardComponent } from './investiments-dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 
-
 @NgModule({
   declarations: [
     InvestimentsDashboardComponent

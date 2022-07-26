@@ -1,7 +1,7 @@
  <!-- criar o componente de visualizacao das divisoes -->
  <cdk-accordion class="example-accordion">
     <cdk-accordion-item
-      *ngFor="let bank of items; let index = index;"
+      *ngFor="let bank of banks; let index = index;"
       #accordionItem="cdkAccordionItem"
       class="example-accordion-item"
       role="button"
@@ -20,7 +20,7 @@
       </span>
 
         <span class="example-accordion-item-description">
-          exibir {{ accordionItem.expanded ? 'menos' : 'mais' }}
+          {{ bank.value | currency }}
         </span>
       </div>
 

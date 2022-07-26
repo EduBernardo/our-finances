@@ -6,9 +6,11 @@
     <div>
         <span>
             <p>total investido</p>
-            <p>R$</p>
+            <p>{{calculatePortifolio() | currency}}</p>
         </span>
-        <app-accordion></app-accordion>
+        <app-accordion
+        [banks]="banks"
+        ></app-accordion>
     </div>
 
 
