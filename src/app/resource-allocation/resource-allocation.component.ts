@@ -17,7 +17,7 @@ export class ResourceAllocationComponent implements OnInit {
   showDistributionTable: boolean = false;
   showAllocationChartSection: boolean = false;
   hasDiscounts: boolean;
-  incomeValue: number = 100;
+  incomeValue: number = 0;
   deductionValue: number = 0;
   incomeValueCalculated: number;
   inputButtonLabel: string = "Calcular";
@@ -50,14 +50,14 @@ export class ResourceAllocationComponent implements OnInit {
       this.showDistributionTable= !this.showDistributionTable
     }
     
-    this.incomeValueCalculated = (this.incomeValue * 0.9) - this.deductionValue
+    this.incomeValueCalculated = (this.incomeValue * 0.9) - this.deductionValue || 0
     this.inputButtonLabel = this.showDistributionTable ? "Atualizar" : "Calcular"
   }
 
   getAllocationItemValue(allocationItem: any){
     const allocationItemValueResult = allocationItem.id !== 0
     ? this.incomeValueCalculated * allocationItem.tax
-    : this.incomeValue * allocationItem.tax;
+    : this.incomeValue || 0 * allocationItem.tax;
 
     return allocationItemValueResult.toFixed(2)
   }
@@ -66,5 +66,4 @@ export class ResourceAllocationComponent implements OnInit {
     // this.treeComponent.clickTreeNodeSelectedByChart(chartLabelSelected);
     this.chartLabelSelected = chartLabelSelected
   }
-
 }

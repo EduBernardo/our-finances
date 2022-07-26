@@ -6,22 +6,12 @@ import { ResourceAllocationComponent } from './resource-allocation.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
-import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from "ng2-currency-mask";
+import { NgxCurrencyModule } from "ngx-currency";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 
-
-export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
-  align: "right",
-  allowNegative: false,
-  decimal: ",",
-  precision: 2,
-  prefix: "R$ ",
-  suffix: "",
-  thousands: "."
-};
 
 
 @NgModule({
@@ -37,10 +27,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     MatFormFieldModule,
     MatInputModule,
   CdkAccordionModule,
+  NgxCurrencyModule
 
   ],
-  providers: [
-  { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
-  ]
+  providers: []
 })
 export class ResourceAllocationModule { }

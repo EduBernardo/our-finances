@@ -10,8 +10,13 @@
                     <mat-form-field class="example-full-width"
                         appearance="fill">
                         <mat-label>Valor da renda</mat-label>
-                        <span matPrefix>R$ &nbsp;</span>
-                        <input type="tel" matInput placeholder="100,00"
+                        <span matPrefix> &nbsp;</span>
+                        <input
+                            type="tel"
+                            matInput 
+                            placeholder="R$ 100,00"
+                            currencyMask
+                            [options]="{ align: 'left',prefix: 'R$ ', thousands: '.', decimal: ',' }"
                             [(ngModel)]="incomeValue"
                             [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
@@ -23,16 +28,20 @@
                     <mat-form-field class="example-full-width"
                         appearance="fill">
                         <mat-label>Valor do disconto</mat-label>
-                        <span matPrefix>R$ &nbsp;</span>
+                        <span matPrefix> &nbsp;</span>
                         <input type="tel" matInput 
-                            placeholder="100,00"
+                            type="tel"
+                            matInput 
+                            placeholder="R$ 100,00"
+                            currencyMask
+                            [options]="{ align: 'left',prefix: 'R$ ', thousands: '.', decimal: ',' }"
                             [(ngModel)]="deductionValue"
                             [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
                 </form>
             </div>
             <span id="slide-toggle">
-                <mat-slide-toggle color="#6ce5e8" [(ngModel)]="hasDiscounts">
+                <mat-slide-toggle [(ngModel)]="hasDiscounts">
                     possuí descontos </mat-slide-toggle>
             </span>
             <br>
