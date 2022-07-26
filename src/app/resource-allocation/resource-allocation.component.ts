@@ -57,13 +57,12 @@ export class ResourceAllocationComponent implements OnInit {
   getAllocationItemValue(allocationItem: any){
     const allocationItemValueResult = allocationItem.id !== 0
     ? this.incomeValueCalculated * allocationItem.tax
-    : this.incomeValue || 0 * allocationItem.tax;
+    : this.incomeValue * allocationItem.tax;
 
-    return allocationItemValueResult.toFixed(2)
+    return allocationItemValueResult
   }
 
   setChartLabelSelectedValue(chartLabelSelected: string){
-    // this.treeComponent.clickTreeNodeSelectedByChart(chartLabelSelected);
     this.chartLabelSelected = chartLabelSelected
   }
 }

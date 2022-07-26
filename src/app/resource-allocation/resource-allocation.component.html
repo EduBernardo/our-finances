@@ -16,7 +16,6 @@
                             matInput 
                             placeholder="R$ 100,00"
                             currencyMask
-                            [options]="{ align: 'left',prefix: 'R$ ', thousands: '.', decimal: ',' }"
                             [(ngModel)]="incomeValue"
                             [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
@@ -34,7 +33,6 @@
                             matInput 
                             placeholder="R$ 100,00"
                             currencyMask
-                            [options]="{ align: 'left',prefix: 'R$ ', thousands: '.', decimal: ',' }"
                             [(ngModel)]="deductionValue"
                             [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
@@ -66,11 +64,11 @@
                       [attr.aria-controls]="'accordion-body-' + index">
 
                       <div class="example-accordion-first-item-header" *ngIf="isFirst">
-                        <span> {{item.name}} </span> <span>R$ {{ getAllocationItemValue(item) }}</span>
+                        <span> {{item.name}} </span> <span currencyMask>{{ getAllocationItemValue(item) | currency}}</span>
                       </div>
 
                       <div class="example-accordion-item-header" [attr.id]="'accordion-item-header-' + index" *ngIf="!isFirst" (click)="accordionItem.toggle()">
-                        <span> {{item.name}} </span> <span>R$ {{ getAllocationItemValue(item) }}</span>
+                        <span> {{item.name}} </span> <span>{{ getAllocationItemValue(item) | currency }}</span>
                       </div>
                       <div
                         class="example-accordion-item-body"

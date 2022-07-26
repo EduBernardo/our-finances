@@ -11,9 +11,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-
+import { NgxCurrencyModule } from "ngx-currency";
 
 registerLocaleData(localePt);
+
+export const customCurrencyMaskConfig = {
+  align: "left",
+  allowNegative: true,
+  allowZero: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: ".",
+  nullable: true
+};
 
 @NgModule({
   declarations: [
@@ -31,7 +43,8 @@ registerLocaleData(localePt);
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
