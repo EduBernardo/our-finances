@@ -67,7 +67,8 @@ div#input-area {
     }
 }
 
-div#submit-button{
+div#submit-button,
+div#chart-button{
     margin-top: 1.5rem;
     text-align: center;
 }
@@ -79,6 +80,19 @@ button {
     width: 40%;
 }
 
+div#chart-button{
+    margin-bottom: 1rem;
+}
+
+#distribution-area{
+    margin-top: -13px;
+    padding: 2rem 1rem 1rem 1rem;
+    border-radius: 0 0 17px 17px;
+    border: solid #6ce5e8;
+    border-top: 0;
+
+}
+
 ul {
     padding: 0;
 }
@@ -87,11 +101,39 @@ li.list-item {
     width: 90%;
     height: 1.3rem;
     padding: 0rem 1rem;
-    border-bottom: solid #000000 1px;
+    border-bottom: solid #757474 0.8px;
+    align-items: flex-end;
+}
+
+.example-accordion-item-header {
+    display: flex;
+    width: 90%;
+    height: 1.5rem;
+    padding: 0rem 1rem;
+    border-bottom: solid #4b4a4a 0.8px;
     align-items: flex-end;
     &>span:first-child {
         flex: 70%;
     }
+}
+
+.example-accordion-first-item-header{
+    display: flex;
+    width: 90%;
+    height: 1.3rem;
+    padding: 0rem 1rem;
+    border: dotted #000000 1px;
+    border-radius: 17px;
+    margin-bottom: 1rem;
+    &>span:first-child {
+        flex: 70%;
+    }
+}
+
+#accordion-item-header-1{
+margin-bottom: 2rem;
+border-bottom: solid #000000 1px;
+
 }
 
 

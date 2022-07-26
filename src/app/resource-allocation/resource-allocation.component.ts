@@ -15,18 +15,23 @@ export class ResourceAllocationComponent implements OnInit {
   chartLabelSelected: string
   showDistributionTableSection: boolean = true;
   showDistributionTable: boolean = false;
+  showAllocationChartSection: boolean = false;
   hasDiscounts: boolean;
   incomeValue: number = 100;
   deductionValue: number = 0;
   incomeValueCalculated: number;
   inputButtonLabel: string = "Calcular";
+  allocationItemValueSum: number = 0;
+
   allocationItems = [
-    {id:0, name:"Necessidades Básicas", tax:0.3785 },
-    {id:1, name:"Despesas de Longo Prazo", tax:0.1505 },
-    {id:2, name:"Instrução", tax:0.1411 },
-    {id:3, name:"Diversão", tax:0.1296 },
-    {id:4, name:"Investimentos", tax:0.1 },
-    {id:5, name:"Doações", tax:0.1 },
+    {id:0, name:"Dízimo", tax:0.1 },
+    {id:1, name:"Total para Alocação (sem o dízimo)", tax:1 },
+    {id:2, name:"Necessidades Básicas", children:["Aluguel", "Água", "Luz", "Fraldas Arthur", "Gasolina", "Internet", "Fundo Mushu", "Tim"], tax:0.4785 },
+    {id:3, name:"Despesas de Longo Prazo", children:["Entrada Casa Própria"], tax:0.1505 },
+    {id:4, name:"Instrução", children:["Mensalidade Pós"], tax:0.1411 },
+    {id:5, name:"Diversão", children:["Streamings", "Mesadas", "Roles"], tax:0.1296 },
+    {id:6, name:"Investimentos", children:[	"Renda Variável", "Criptomoedas", "Renda Fixa"], tax:0.1 },
+    
   ]
 
 
@@ -45,12 +50,15 @@ export class ResourceAllocationComponent implements OnInit {
       this.showDistributionTable= !this.showDistributionTable
     }
     
-    this.incomeValueCalculated = this.incomeValue - this.deductionValue
+    this.incomeValueCalculated = (this.incomeValue * 0.9) - this.deductionValue
     this.inputButtonLabel = this.showDistributionTable ? "Atualizar" : "Calcular"
   }
 
-  getAllocationItemValue(taxValue: number){
-    const allocationItemValueResult = this.incomeValueCalculated * taxValue;
+  getAllocationItemValue(allocationItem: any){
+    const allocationItemValueResult = allocationItem.id !== 0
+    ? this.incomeValueCalculated * allocationItem.tax
+    : this.incomeValue * allocationItem.tax;
+
     return allocationItemValueResult.toFixed(2)
   }
 

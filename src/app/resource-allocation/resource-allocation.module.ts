@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from "ng2-currency-mask";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 
 
@@ -35,6 +36,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+  CdkAccordionModule,
+
   ],
   providers: [
   { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
