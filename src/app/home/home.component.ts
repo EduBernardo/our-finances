@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
 
   menuOptions = [
     {id:1, name: "Alocação", redirectTo:'allocation' ,imgSrc: "../../assets/img/chart-round-icon.png"},
-    {id:2, name: "Orçamento", redirectTo:'budget' ,imgSrc: "../../assets/img/chart-column-icon.png"},
-    {id:3, name: "Histórico", redirectTo:'history' ,imgSrc: "../../assets/img/chart-history-icon.png"},
+    //{id:2, name: "Orçamento", redirectTo:'budget' ,imgSrc: "../../assets/img/chart-column-icon.png"},
+    //{id:3, name: "Histórico", redirectTo:'history' ,imgSrc: "../../assets/img/chart-history-icon.png"},
     {id:4, name: "Investimentos", redirectTo:'dashboard' ,imgSrc: "../../assets/img/pig-investiments-logo.png"},
 
   ]
