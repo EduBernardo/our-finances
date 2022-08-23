@@ -19,15 +19,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
-        run: npm install
-
-      # - name: Run tests
-      #   run: npm run test:headless
-
-      - name: Build
-        run: npm run build:prod
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -45,6 +36,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: sa-east-1
 
+      - name: Install dependencies
+        run: npm install
+
+      # - name: Run tests
+      #   run: npm run test:headless
+
+      - name: Build
+        run: npm run build:prod
+        
       - name: Deploy
         if: success()
         run: aws s3 sync ./dist s3://our-finances-app
