@@ -20,7 +20,7 @@ jobs:
 
   Deploy:
     runs-on: ubuntu-latest
-    needs: Sonar
+    #needs: Sonar
     steps:
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
