@@ -1,7 +1,57 @@
 @import '../../styles.scss';
 
+section {
+    padding: 1rem
+}
+
+div#input-allocation{
+    padding: 1rem;
+    position: inherit;
+    border-radius: 17px;
+    border: solid #6ce5e8;
+}
+
+::ng-deep .example-form {
+    .mat-focused .mat-form-field-ripple {
+      /*change color of underline when focused*/
+      background-color: #6ce5e8 ;
+    }
+    .mat-focused .mat-form-field-label {
+      /*change color of label when focused*/
+      color: #6ce5e8 ;
+     }
+
+     .mat-form-field-label {
+        /*change color of label when focused*/
+        color: #6ce5e8 ;
+       }
+  }
+
+  span#value-information{
+    display: flex;
+    &>p:first-child{
+        flex:80% ;
+    }
+  }
+
 div#chart{
     position: relative; 
     top: 1rem;
     align-items: center;
+}
+
+div#chart-button{
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+button {
+    border-radius: 17px;
+    background-color: transparent;
+    height: 2rem;
+    width: 40%;
+}
+
+div#chart-button{
+    margin-bottom: 1rem;
 }
