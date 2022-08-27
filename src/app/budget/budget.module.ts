@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BudgetRoutingModule } from './budget-routing.module';
-import { BudgetComponent, ItemAllocationDialog } from './budget.component';
+import { BudgetComponent, ErrorDialog, ItemAllocationDialog } from './budget.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,7 +18,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     BudgetComponent,
-    ItemAllocationDialog
+    ItemAllocationDialog,
+    ErrorDialog
   ],
   imports: [
     CommonModule,

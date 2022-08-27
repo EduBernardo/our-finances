@@ -18,13 +18,13 @@ export class BudgetComponent implements OnInit {
   chartUrl: string;
   showBudgetChartSection: boolean = false;
   initialIncomeValue: number;
-  incomeValue: number = 0;
   remainingIncomeValue: number = 0;
   showIncomeInput: boolean = true;
   showBudgetChartButton: boolean = false;
   showIncomeAllocation: boolean = false;
   inputButtonLabel: string = 'Incluir pagamentos';
   allocationList: Array<ListItem> = [];
+  showMinimunValueError: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,8 +37,20 @@ export class BudgetComponent implements OnInit {
     this.chartUrl = this.userID == '1' ? '../../assets/img/chart_dark_theme.png' : '../../assets/img/chart_light_theme.png';
   }
 
-  setInitialIncomeValue(){
-    this.incomeValue = this.initialIncomeValue
+  validateMinimunValue(event: any){
+    if(event.target.innerHTML === 'Incluir pagamentos' &&  !this.initialIncomeValue) {
+    const dialogRef = this.dialog.open(ErrorDialog);
+    return
+    }
+    this.switchBetweenInputAndAllocation()
+  }
+
+  switchBetweenInputAndAllocation(){
+    this.changeShowIncomeInputValue();
+    this.changeshowBudgetChartButtonValue();
+    this.changeshowIncomeAllocationValue();
+    this.setRemainingValueInitialState();
+    this.clearAllocationListArray()
   }
 
   changeShowIncomeInputValue(){
@@ -51,14 +63,6 @@ export class BudgetComponent implements OnInit {
 
   changeshowIncomeAllocationValue(){
     this.showIncomeAllocation = !this.showIncomeAllocation
-  }
-
-  switchBetweenInputAndAllocation(){
-    this.changeShowIncomeInputValue();
-    this.changeshowBudgetChartButtonValue();
-    this.changeshowIncomeAllocationValue();
-    this.setRemainingValueInitialState();
-    this.clearAllocationListArray()
   }
 
   setRemainingValueInitialState() {
@@ -105,6 +109,25 @@ export class BudgetComponent implements OnInit {
 })
 
 export class ItemAllocationDialog{
+
+dialogItem = {
+    name: '',
+    value: 0
+  }
+
+  constructor(){
+  }
+}
+
+
+@Component({
+  selector: 'error-dialog',
+  templateUrl: '/error-dialog/error.dialog.html',
+  styleUrls: ['./budget.component.scss']
+
+})
+
+export class ErrorDialog{
 
 dialogItem = {
     name: '',

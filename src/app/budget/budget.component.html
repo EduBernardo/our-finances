@@ -11,7 +11,7 @@
                         <mat-label>Valor da renda</mat-label>
                         <span matPrefix> &nbsp;</span>
                         <input type="tel" matInput placeholder="R$ 100,00" currencyMask [(ngModel)]="initialIncomeValue"
-                            [ngModelOptions]="{standalone: true}" (blur)="setInitialIncomeValue()">
+                            [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
                 </form>
             </div>
@@ -30,7 +30,7 @@
             </div>
 
             <div id="submit-button">
-                <button (click)="switchBetweenInputAndAllocation()">{{showIncomeInput ? 'Incluir pagamentos' : 'Editar
+                <button (click)="validateMinimunValue($event)">{{showIncomeInput ? 'Incluir pagamentos' : 'Editar
                     renda'}}</button>
             </div>
         </div>

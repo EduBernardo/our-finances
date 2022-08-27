@@ -27,8 +27,7 @@ div#input-allocation{
        }
   }
 
-  span#value-information,
-  span#allocation-list{
+  span#value-information{
     display: flex;
     font-size: 1.2rem;
     &>p:first-child{
@@ -40,6 +39,12 @@ div#input-allocation{
   span#allocation-list {
     margin-top: 1rem;
     border-bottom: solid #757474 0.8px;
+    display: flex;
+    font-size: 1.2rem;
+    &>p:first-child{
+        flex:57% ;
+        font-size: 1rem;
+    }
   }
 
   div#income-allocation-table{
