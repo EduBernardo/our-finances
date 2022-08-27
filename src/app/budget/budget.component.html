@@ -1,57 +1,70 @@
 <main class="fading" Theme>
-<app-header title="Orçamento mensal" subtitle="realize a distribuição nos campos necessários">
-</app-header>
+    <app-header title="Orçamento mensal" subtitle="realize a distribuição nos campos necessários">
+    </app-header>
 
-<section  *ngIf="!showBudgetChartSection">
-    <div id="input-allocation">
-        <!-- incluir o input -->
-        <div id="income-value-input" *ngIf="showIncomeInput">
-            <form class="example-form">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Valor da renda</mat-label>
-                    <span matPrefix> &nbsp;</span>
-                    <input type="tel" matInput placeholder="R$ 100,00" currencyMask [(ngModel)]="initialIncomeValue"
-                        [ngModelOptions]="{standalone: true}" (blur)="setInitialIncomeValue()">
-                </mat-form-field>
-            </form>
+    <section *ngIf="!showBudgetChartSection">
+        <div id="input-allocation">
+            <!-- incluir o input -->
+            <div id="income-value-input" *ngIf="showIncomeInput">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Valor da renda</mat-label>
+                        <span matPrefix> &nbsp;</span>
+                        <input type="tel" matInput placeholder="R$ 100,00" currencyMask [(ngModel)]="initialIncomeValue"
+                            [ngModelOptions]="{standalone: true}" (blur)="setInitialIncomeValue()">
+                    </mat-form-field>
+                </form>
+            </div>
+
+            <div id="income-allocation" *ngIf="showIncomeAllocation">
+                <span id="value-information">
+                    <p currencyMask>Valor Inicial:</p>
+                    <p currencyMask> {{initialIncomeValue | currency}}</p>
+
+                </span>
+                <span id="value-information">
+                    <p>Valor restante: </p>
+                    <p>{{remainingIncomeValue | currency}}</p>
+
+                </span>
+            </div>
+
+            <div id="submit-button">
+                <button (click)="switchBetweenInputAndAllocation()">{{showIncomeInput ? 'Incluir pagamentos' : 'Editar
+                    renda'}}</button>
+            </div>
         </div>
-    
-        <div id="income-allocation" *ngIf="showIncomeAllocation">
-            <span id="value-information">
-                <p currencyMask>Valor Inicial:</p>
-                <p currencyMask> R$ {{initialIncomeValue}}</p>
 
+        <div id="income-allocation-table" *ngIf="showIncomeAllocation">
+            <span>
+                <button id='add-item-button' mat-mini-fab aria-label="incluir um item a lista abaixo"
+                    (click)="openAddListDialog()">
+                    +
+                </button>
             </span>
-            <span id="value-information">
-                <p>Valor restante: </p>
-                <p>R$ {{calculatedIncomeValue}}</p>
 
+            <span id="allocation-list" *ngFor="let item of allocationList">
+                <p>{{item.name}} </p>
+                <p>{{item.value | currency}}</p>
             </span>
         </div>
-    
-        <div id="submit-button">
-            <button (click)="switchBetweenInputAndAllocation()">{{showIncomeInput ? 'Incluir pagamentos' : 'Editar renda'}}</button>
-        </div>
-    </div>
+    </section>
 
-</section>
-
-<section  *ngIf="showBudgetChartSection">
+    <section *ngIf="showBudgetChartSection">
         <!-- componentizar o chart -->
         <div id="chart">
             <!-- <img src="{{chartUrl}}" alt="" srcset=""> -->
-            <app-chart
-            chartType="bar"
-            ></app-chart>
+            <app-chart chartType="bar"></app-chart>
         </div>
         <!-- criar o componente de visualizacao das divisoes -->
         <p>Saldo</p>
-</section>
+    </section>
 
 
     <footer>
         <div id="chart-button" *ngIf="showBudgetChartButton">
-            <button (click)="showBudgetChartSection = !showBudgetChartSection"> {{showBudgetChartSection ? 'exibir lista' : 'exibir gráfico'}} </button>
+            <button (click)="showBudgetChartSection = !showBudgetChartSection"> {{showBudgetChartSection ? 'exibir
+                lista' : 'exibir gráfico'}} </button>
         </div>
         <bottom-bar>
         </bottom-bar>

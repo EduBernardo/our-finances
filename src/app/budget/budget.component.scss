@@ -27,11 +27,41 @@ div#input-allocation{
        }
   }
 
-  span#value-information{
+  span#value-information,
+  span#allocation-list{
     display: flex;
+    font-size: 1.2rem;
     &>p:first-child{
-        flex:80% ;
+        flex:70% ;
+        font-size: 1rem;
     }
+  }
+
+  span#allocation-list {
+    margin-top: 1rem;
+    border-bottom: solid #757474 0.8px;
+  }
+
+  div#income-allocation-table{
+    margin-top: 1rem;
+  }
+
+  button#add-item-button{
+    font-size: 1.9rem;
+    width: 9%;
+  }
+
+::ng-deep #add-item-button{
+    .mat-button-wrapper{
+        padding:0
+    }
+}
+
+
+
+  div#submit-button{
+    margin-top: 0.5rem;
+    text-align-last: center;
   }
 
 div#chart{

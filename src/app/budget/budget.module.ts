@@ -2,17 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BudgetRoutingModule } from './budget-routing.module';
-import { BudgetComponent } from './budget.component';
+import { BudgetComponent, ItemAllocationDialog } from './budget.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxCurrencyModule } from 'ngx-currency';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 
 @NgModule({
   declarations: [
-    BudgetComponent
+    BudgetComponent,
+    ItemAllocationDialog
   ],
   imports: [
     CommonModule,
@@ -21,7 +27,10 @@ import { NgxCurrencyModule } from 'ngx-currency';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    NgxCurrencyModule
+    NgxCurrencyModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule
   ]
 })
 export class BudgetModule { }
