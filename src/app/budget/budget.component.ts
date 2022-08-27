@@ -103,7 +103,7 @@ export class BudgetComponent implements OnInit {
 
 @Component({
   selector: 'item-allocation-dialog',
-  templateUrl: 'item-allocation-dialog.html',
+  templateUrl: '/item-allocation-dialog/item-allocation-dialog.html',
   styleUrls: ['./budget.component.scss']
 
 })
