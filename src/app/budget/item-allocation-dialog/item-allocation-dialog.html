@@ -7,7 +7,8 @@
             <span matPrefix> &nbsp;</span>
             <input type="text" matInput placeholder="Ex: Aluguel"
                 [(ngModel)]="dialogItem.name"
-                [ngModelOptions]="{standalone: true}">
+                [ngModelOptions]="{standalone: true}"
+                autocomplete="off">
         </mat-form-field>
     </form>
 </div>
@@ -19,7 +20,8 @@
                 <span matPrefix> &nbsp;</span>
                 <input type="tel" matInput placeholder="Ex: R$ 100,00" currencyMask
                 [(ngModel)]="dialogItem.value"
-                [ngModelOptions]="{standalone: true}">
+                [ngModelOptions]="{standalone: true}"
+                autocomplete="off">
             </mat-form-field>
         </form>
     </div>

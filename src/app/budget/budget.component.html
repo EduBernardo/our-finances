@@ -11,7 +11,7 @@
                         <mat-label>Valor da renda</mat-label>
                         <span matPrefix> &nbsp;</span>
                         <input type="tel" matInput placeholder="R$ 100,00" currencyMask [(ngModel)]="initialIncomeValue"
-                            [ngModelOptions]="{standalone: true}">
+                            [ngModelOptions]="{standalone: true}" autocomplete="off">
                     </mat-form-field>
                 </form>
             </div>
