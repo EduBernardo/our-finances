@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxCaptureService } from 'ngx-capture';
+import { tap } from 'rxjs';
 
 export interface ListItem  {
   name: string;
   value: number
 }
 
+
 @Component({
   selector: 'app-budget',
   templateUrl: './budget.component.html',
-  styleUrls: ['./budget.component.scss']
+  styleUrls: ['./budget.component.scss'],
 })
 export class BudgetComponent implements OnInit {
+  @ViewChild('screen ') screen: any;
 
   userID: any;
   chartUrl: string;
@@ -29,71 +33,122 @@ export class BudgetComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private captureService: NgxCaptureService,
     public dialog: MatDialog
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.userID = this.route.snapshot.paramMap.get('id');
-    this.chartUrl = this.userID == '1' ? '../../assets/img/chart_dark_theme.png' : '../../assets/img/chart_light_theme.png';
+    this.chartUrl =
+      this.userID == '1'
+        ? '../../assets/img/chart_dark_theme.png'
+        : '../../assets/img/chart_light_theme.png';
   }
 
-  validateMinimunValue(event: any){
-    if(event.target.innerHTML === 'Incluir pagamentos' &&  !this.initialIncomeValue) {
-    const dialogRef = this.dialog.open(ErrorDialog);
-    return
+  validateMinimunValue(event: any) {
+    if (
+      event.target.innerHTML === 'Incluir pagamentos' &&
+      !this.initialIncomeValue
+    ) {
+      const dialogRef = this.dialog.open(ErrorDialog);
+      return;
     }
-    this.switchBetweenInputAndAllocation()
+    this.switchBetweenInputAndAllocation();
   }
 
-  switchBetweenInputAndAllocation(){
+  switchBetweenInputAndAllocation() {
     this.changeShowIncomeInputValue();
     this.changeshowBudgetChartButtonValue();
     this.changeshowIncomeAllocationValue();
     this.setRemainingValueInitialState();
-    this.clearAllocationListArray()
+    this.clearAllocationListArray();
   }
 
-  changeShowIncomeInputValue(){
-    this.showIncomeInput = !this.showIncomeInput
+  changeShowIncomeInputValue() {
+    this.showIncomeInput = !this.showIncomeInput;
   }
 
-  changeshowBudgetChartButtonValue(){
-    this.showBudgetChartButton = !this.showBudgetChartButton
+  changeshowBudgetChartButtonValue() {
+    this.showBudgetChartButton = !this.showBudgetChartButton;
   }
 
-  changeshowIncomeAllocationValue(){
-    this.showIncomeAllocation = !this.showIncomeAllocation
+  changeshowIncomeAllocationValue() {
+    this.showIncomeAllocation = !this.showIncomeAllocation;
   }
 
   setRemainingValueInitialState() {
-    this.remainingIncomeValue = this.initialIncomeValue
+    this.remainingIncomeValue = this.initialIncomeValue;
   }
 
-  clearAllocationListArray(){
-  this.allocationList = [];
-
+  clearAllocationListArray() {
+    this.allocationList = [];
   }
 
-  openAddListDialog(){
+  openAddListDialog() {
     this.openDialog();
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(ItemAllocationDialog);
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.addAllocationListItem(result)
+    dialogRef.afterClosed().subscribe((result) => {
+      this.addAllocationListItem(result);
     });
   }
 
-  addAllocationListItem(dialogItem: ListItem){
+  addAllocationListItem(dialogItem: ListItem) {
     this.allocationList.push(dialogItem);
-    this.updateRemainingValue(dialogItem)
+    this.updateRemainingValue(dialogItem);
   }
 
-  updateRemainingValue(dialogItem: ListItem){
-    this.remainingIncomeValue = this.remainingIncomeValue - dialogItem.value
+  updateRemainingValue(dialogItem: ListItem) {
+    this.remainingIncomeValue = this.remainingIncomeValue - dialogItem.value;
   }
+
+  takeScreenshot() {
+    this.captureService
+      .getImage(this.screen.nativeElement, true)
+      .pipe(
+        tap((img) => {
+          this.shareScreenshot(img);
+        })
+      )
+      .subscribe();
+  }
+
+  shareScreenshot(base64: string){
+    const name = new Date
+    const blob = this.DataURIToBlob(base64)
+    const filesArray = [new File([blob], String(name.getTime()), { type: 'image/jpeg' })]
+    const shareData = {
+      files: filesArray,
+    }
+    // eslint-disable-nextline
+    const nav: any = navigator
+    const canShare = nav.canShare && nav.canShare(shareData)
+    const userAgent = navigator.userAgent || navigator.vendor
+    const isMobile = /android|iPad|iPhone|iPod/i.test(userAgent)
+    if (canShare && isMobile) {
+      navigator.share(shareData)
+      return true
+    }
+    return false
+  }
+
+  DataURIToBlob(dataURI: string) {
+    const splitDataURI = dataURI.split(',')
+    const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
+    const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
+        
+    const ia = new Uint8Array(byteString.length)
+    for (let i = 0; i < byteString.length; i++)
+        ia[i] = byteString.charCodeAt(i)
+      
+        return new Blob([ia], { type: mimeString })
+}
+
+
+
 }
 
 

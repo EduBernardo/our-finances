@@ -1,8 +1,8 @@
-<main class="fading" Theme>
+<main class="fading" Theme >
     <app-header title="Orçamento mensal" subtitle="realize a distribuição nos campos necessários">
     </app-header>
 
-    <section *ngIf="!showBudgetChartSection">
+    <section *ngIf="!showBudgetChartSection" #screen >
         <div id="input-allocation">
             <!-- incluir o input -->
             <div id="income-value-input" *ngIf="showIncomeInput">
@@ -63,8 +63,9 @@
 
     <footer>
         <div id="chart-button" *ngIf="showBudgetChartButton">
-            <button (click)="showBudgetChartSection = !showBudgetChartSection"> {{showBudgetChartSection ? 'exibir
-                lista' : 'exibir gráfico'}} </button>
+            <button (click)="takeScreenshot()" *ngIf="!showBudgetChartSection"> compartilhar </button>
+                <button (click)="showBudgetChartSection = !showBudgetChartSection"> {{showBudgetChartSection ? 'exibir
+                    lista' : 'exibir gráfico'}} </button>
         </div>
         <bottom-bar>
         </bottom-bar>

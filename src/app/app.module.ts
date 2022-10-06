@@ -12,6 +12,7 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { NgxCurrencyModule } from "ngx-currency";
+import { NgxCaptureModule } from 'ngx-capture';
 
 registerLocaleData(localePt);
 
@@ -44,7 +45,8 @@ export const customCurrencyMaskConfig = {
       registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserAnimationsModule,
-    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+    NgxCaptureModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
