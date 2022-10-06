@@ -97,6 +97,9 @@ export class BudgetComponent implements OnInit {
   }
 
   addAllocationListItem(dialogItem: ListItem) {
+    if(!dialogItem){
+      return
+    }
     this.allocationList.push(dialogItem);
     this.updateRemainingValue(dialogItem);
   }
