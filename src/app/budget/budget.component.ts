@@ -117,9 +117,9 @@ export class BudgetComponent implements OnInit {
   }
 
   shareScreenshot(base64: string){
-    const name = new Date
+    const name = Date.now().toString()+'.pdf'
     const blob = this.DataURIToBlob(base64)
-    const filesArray = [new File([blob], String(name.getTime()), { type: 'image/jpeg' })]
+    const filesArray = [new File([blob], name, { type: 'application/pdf' })]
     const shareData = {
       files: filesArray,
     }
