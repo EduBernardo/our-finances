@@ -60,14 +60,14 @@
         <p>Saldo</p>
     </section>
 
-
-    <footer>
-        <div id="chart-button" *ngIf="showBudgetChartButton">
-            <button (click)="takeScreenshot()" *ngIf="!showBudgetChartSection"> compartilhar </button>
-                <button (click)="showBudgetChartSection = !showBudgetChartSection"> {{showBudgetChartSection ? 'exibir
-                    lista' : 'exibir gráfico'}} </button>
-        </div>
-        <bottom-bar>
-        </bottom-bar>
-    </footer>
 </main>
+
+<footer>
+    <div id="chart-button" *ngIf="showBudgetChartButton">
+        <button (click)="takeScreenshot()" *ngIf="!showBudgetChartSection"> compartilhar </button>
+            <button (click)="showBudgetChartSection = !showBudgetChartSection"> {{showBudgetChartSection ? 'exibir
+                lista' : 'exibir gráfico'}} </button>
+    </div>
+    <bottom-bar>
+    </bottom-bar>
+</footer>

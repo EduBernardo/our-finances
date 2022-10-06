@@ -49,6 +49,8 @@ div#input-allocation{
 
   div#income-allocation-table{
     margin-top: 1rem;
+    height: 60vh;
+    overflow: scroll;
   }
 
   button#add-item-button{
