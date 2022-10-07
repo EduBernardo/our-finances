@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LocationService } from '../shared/services/location.service';
-import { TimeService } from '../shared/services/time.service';
-import { IUserInterface } from "../shared/interfaces/user.interface";
-import { NavigationService } from '../shared/services/navigation.service';
+import { LocationService } from '../modules/shared/services/location.service';
+import { TimeService } from '../modules/shared/services/time.service';
+import { IUserInterface } from "../modules/shared/interfaces/user.interface";
+import { NavigationService } from '../modules/shared/services/navigation.service';
 
 
 @Component({
