@@ -54,6 +54,22 @@ img {
   max-width: 36%;
 }
 
+.bankPurposeDiv {
+  animation: slideBankPurpose 300ms ease-in-out forwards;
+}
+
+@keyframes slideBankPurpose {
+  0% {
+    transform: scaleY(0)
+}
+80% {
+    transform: scaleY(1.1)
+}
+100% {
+    transform: scaleY(1)
+}
+}
+
 
 .bank-itau-true {
   animation: fadeBackgroundItau 1s;
