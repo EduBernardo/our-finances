@@ -8,6 +8,9 @@ import Chart from 'chart.js/auto';
 })
 export class ChartComponent implements OnInit {
   @Input() chartType: string
+  @Input() budgetValueData?: number
+  @Input() usedValueData?: number
+
   @Output() labelSelected = new EventEmitter<string>();
 
   constructor() { }
@@ -110,7 +113,7 @@ export class ChartComponent implements OnInit {
         ],
         datasets: [{
           label: 'My First Dataset',
-          data: [37, 85],
+          data: [this.usedValueData, this.budgetValueData],
           backgroundColor: [
             'rgba(0,156,73,255)',
             'rgba(254,0,0,255)',

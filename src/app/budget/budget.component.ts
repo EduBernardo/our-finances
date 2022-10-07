@@ -148,9 +148,7 @@ export class BudgetComponent implements OnInit {
         ia[i] = byteString.charCodeAt(i)
       
         return new Blob([ia], { type: mimeString })
-}
-
-
+  }
 
 }
 

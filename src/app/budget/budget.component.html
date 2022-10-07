@@ -53,11 +53,11 @@
     <section *ngIf="showBudgetChartSection">
         <!-- componentizar o chart -->
         <div id="chart">
-            <!-- <img src="{{chartUrl}}" alt="" srcset=""> -->
-            <app-chart chartType="bar"></app-chart>
+            <app-chart chartType="bar" 
+            [budgetValueData]="initialIncomeValue" 
+            [usedValueData]="initialIncomeValue - remainingIncomeValue">
+            </app-chart>
         </div>
-        <!-- criar o componente de visualizacao das divisoes -->
-        <p>Saldo</p>
     </section>
 
 </main>
