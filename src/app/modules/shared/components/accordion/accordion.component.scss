@@ -54,30 +54,82 @@ img {
   max-width: 36%;
 }
 
+
 .bank-itau-true {
+  animation: fadeBackgroundItau 1s;
+  animation-fill-mode: forwards;
   background-color: #EC7000;
 }
 
 .bank-picpay-true {
+  animation: fadeBackgroundPicpay 1s;
+  animation-fill-mode: forwards;
   background-color: #77dd77;
 }
 
 .bank-mercadoPago-true {
+  animation: fadeBackgroundMercadoPago 1s;
+  animation-fill-mode: forwards;
   background-color: #eee;
 }
 
 .bank-nuBank-true {
-  background-color: #993399 ;
+  animation: fadeBackgroundNuBank 1s;
+  animation-fill-mode: forwards;
+  background-color: #993399;
 }
 
 .bank-nuInvest-true {
+  animation: fadeBackgroundNuInvest 1s;
+  animation-fill-mode: forwards;
   background-color: #800080;
 }
 
 .bank-mercadoBitcoin-true {
+  animation: fadeBackgroundMercadoBitcoin 1s;
+  animation-fill-mode: forwards;
   background-color: #303030;
 }
 
 .bank-caixa-true {
+  animation: fadeBackgroundCaixa 1s;
+  animation-fill-mode: forwards;
   background-color: #4eb0e6;
 }
+
+@keyframes fadeBackgroundItau {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: #EC7000; }
+}
+
+@keyframes fadeBackgroundPicpay {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: #77dd77; }
+}
+
+@keyframes fadeBackgroundMercadoPago {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: #eee; }
+}
+
+@keyframes fadeBackgroundNuBank {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: #993399; }
+}
+
+@keyframes fadeBackgroundNuInvest {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: #800080; }
+}
+
+@keyframes fadeBackgroundMercadoBitcoin {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: #303030; }
+}
+
+@keyframes fadeBackgroundCaixa {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: #4eb0e6; }
+}
+
+
