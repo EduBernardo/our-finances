@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "our-finances:build:production"
+              "buildTarget": "our-finances:build:production"
             },
             "development": {
-              "browserTarget": "our-finances:build:development"
+              "buildTarget": "our-finances:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "our-finances:build"
+            "buildTarget": "our-finances:build"
           }
         },
         "test": {
@@ -113,5 +113,7 @@
       }
     }
   },
-  "defaultProject": "our-finances"
+  "cli": {
+    "analytics": "4b19bab2-7301-4b0c-b24a-00c55935cabc"
+  }
 }
