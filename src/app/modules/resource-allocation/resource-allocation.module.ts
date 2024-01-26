@@ -6,7 +6,6 @@ import { ResourceAllocationComponent } from './resource-allocation.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
-import { NgxCurrencyModule } from "ngx-currency";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
@@ -26,8 +25,7 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-  CdkAccordionModule,
-  NgxCurrencyModule
+  CdkAccordionModule
 
   ],
   providers: []

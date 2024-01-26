@@ -7,7 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgxCurrencyModule } from 'ngx-currency';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -28,7 +27,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    NgxCurrencyModule,
     MatButtonModule,
     MatIconModule,
     MatDialogModule
