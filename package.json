@@ -27,6 +27,8 @@
     "ng2-currency-mask": "^13.0.3",
     "ngx-capture": "^0.12.2",
     "ngx-currency": "^17.0.0",
+    "node": "^21.6.1",
+    "nvm": "^0.0.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"
