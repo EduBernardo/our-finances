@@ -113,5 +113,7 @@
       }
     }
   },
-  "defaultProject": "our-finances"
+  "cli": {
+    "analytics": "4b19bab2-7301-4b0c-b24a-00c55935cabc"
+  }
 }
