@@ -54,7 +54,6 @@ permissions:
 
 jobs:
   terraform:
-    if: contains(github.event.head_commit.message, '[infra]')
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
