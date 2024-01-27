@@ -1,0 +1,17 @@
+<main Theme>
+    <app-header title="{{momentOfTheDay}} {{userName}}" 
+    subtitle="o que você deseja fazer agora?">
+    </app-header>
+
+    <menu>
+        <button type="button" *ngFor="let option of menuOptions" value={{option.name}} (click)="onMenuOptionClick(option.redirectTo)">
+            <img src={{option.imgSrc}} alt="" srcset="">
+            <p>{{option.name}}</p>
+        </button>
+    </menu>
+
+    <footer>
+        <bottom-bar>
+        </bottom-bar>
+    </footer>
+</main>

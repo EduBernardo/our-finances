@@ -1,0 +1,14 @@
+@import '../../../../../styles.scss';
+
+
+.example-tree-node {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    background-color: transparent;
+    border-radius: 16%;
+    height: 1.8rem;
+    border: 0;
+}

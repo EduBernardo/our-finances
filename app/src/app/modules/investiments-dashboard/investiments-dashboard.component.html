@@ -1,0 +1,21 @@
+<main  class="fading" Theme>
+    <app-header title="Investimentos" 
+    subtitle="verifique onde estão alocados nossos investimentos">
+    </app-header>
+    
+    <div>
+        <span>
+            <p>total investido</p>
+            <p>{{calculatePortifolio() | currency}}</p>
+        </span>
+        <app-accordion
+        [banks]="banks"
+        ></app-accordion>
+    </div>
+
+
+    <footer>
+        <bottom-bar>
+        </bottom-bar>
+    </footer>
+</main>

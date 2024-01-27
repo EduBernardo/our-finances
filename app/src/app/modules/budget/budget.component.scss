@@ -1,0 +1,94 @@
+@import '../../../styles.scss';
+
+section {
+    padding: 1rem
+}
+
+div#input-allocation{
+    padding: 1rem;
+    position: inherit;
+    border-radius: 17px;
+    border: solid #6ce5e8;
+}
+
+::ng-deep .example-form {
+    .mat-focused .mat-form-field-ripple {
+      /*change color of underline when focused*/
+      background-color: #6ce5e8 ;
+    }
+    .mat-focused .mat-form-field-label {
+      /*change color of label when focused*/
+      color: #6ce5e8 ;
+     }
+
+     .mat-form-field-label {
+        /*change color of label when focused*/
+        color: #6ce5e8 ;
+       }
+  }
+
+  span#value-information{
+    display: flex;
+    font-size: 1.2rem;
+    &>p:first-child{
+        flex:70% ;
+        font-size: 1rem;
+    }
+  }
+
+  span#allocation-list {
+    margin-top: 1rem;
+    border-bottom: solid #757474 0.8px;
+    display: flex;
+    font-size: 1.2rem;
+    &>p:first-child{
+        flex:57% ;
+        font-size: 1rem;
+    }
+  }
+
+  div#income-allocation-table{
+    margin-top: 1rem;
+    height: 60vh;
+    overflow: scroll;
+  }
+
+  button#add-item-button{
+    font-size: 1.9rem;
+    width: 9%;
+  }
+
+::ng-deep #add-item-button{
+    .mat-button-wrapper{
+        padding:0
+    }
+}
+
+
+
+  div#submit-button{
+    margin-top: 0.5rem;
+    text-align-last: center;
+  }
+
+div#chart{
+    position: relative; 
+    top: 1rem;
+    align-items: center;
+}
+
+div#chart-button{
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+button {
+    border-radius: 17px;
+    background-color: transparent;
+    height: 2rem;
+    width: 40%;
+}
+
+div#chart-button{
+    margin-bottom: 1rem;
+}

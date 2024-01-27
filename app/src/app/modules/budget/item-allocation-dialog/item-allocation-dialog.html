@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>adicionar pagamento</h1>
+<div mat-dialog-content>
+  <p>Qual o nome?</p>
+  <div id="income-value-input">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <span matPrefix> &nbsp;</span>
+            <input type="text" matInput placeholder="Ex: Aluguel"
+                [(ngModel)]="dialogItem.name"
+                [ngModelOptions]="{standalone: true}"
+                autocomplete="off">
+        </mat-form-field>
+    </form>
+</div>
+
+    <p>Qual o valor?</p>
+    <div id="income-value-input">
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <span matPrefix> &nbsp;</span>
+                <input type="tel" matInput placeholder="Ex: R$ 100,00" currencyMask
+                [(ngModel)]="dialogItem.value"
+                [ngModelOptions]="{standalone: true}"
+                autocomplete="off">
+            </mat-form-field>
+        </form>
+    </div>
+  </div>
+<div mat-dialog-actions>
+  <button id="submit-button" mat-button cdkFocusInitial [mat-dialog-close]="dialogItem">adicionar</button>
+</div>

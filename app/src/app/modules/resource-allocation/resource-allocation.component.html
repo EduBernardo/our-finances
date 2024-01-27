@@ -1,0 +1,109 @@
+<main class="fading" Theme>
+    <app-header title="Alocação dos recursos" subtitle="esse é o padrão de
+        distribuição da nossa renda">
+    </app-header>
+
+    <section id="distribution-table-section" *ngIf="!showAllocationChartSection">
+        <div id="input-area">
+            <div id="income-value">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width"
+                        appearance="fill">
+                        <mat-label>Valor da renda</mat-label>
+                        <span matPrefix> &nbsp;</span>
+                        <input
+                            type="tel"
+                            matInput 
+                            placeholder="R$ 100,00"
+                            currencyMask
+                            [(ngModel)]="incomeValue"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </form>
+            </div>
+
+            <div id="deductions-value" *ngIf="hasDiscounts">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width"
+                        appearance="fill">
+                        <mat-label>Valor do disconto</mat-label>
+                        <span matPrefix> &nbsp;</span>
+                        <input type="tel" matInput 
+                            type="tel"
+                            matInput 
+                            placeholder="R$ 100,00"
+                            currencyMask
+                            [(ngModel)]="deductionValue"
+                            [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </form>
+            </div>
+            <span id="slide-toggle">
+                <mat-slide-toggle [(ngModel)]="hasDiscounts">
+                    possuí descontos </mat-slide-toggle>
+            </span>
+            <br>
+
+            <div id="submit-button">
+                <button (click)="updateIncomeValue($event)">{{inputButtonLabel}}</button>
+            </div>
+        </div>
+
+
+        <div id="distribution-area" *ngIf="showDistributionTable">
+            <div id="distribution-table">
+                <cdk-accordion class="example-accordion">
+                    <cdk-accordion-item
+                      *ngFor="let item of allocationItems; let index = index; first as isFirst;"
+                      #accordionItem="cdkAccordionItem"
+                      class="example-accordion-item"
+                      role="button"
+                      tabindex="0"
+                      [attr.id]="'accordion-header-' + index"
+                      [attr.aria-expanded]="accordionItem.expanded"
+                      [attr.aria-controls]="'accordion-body-' + index">
+
+                      <div class="example-accordion-first-item-header" *ngIf="isFirst">
+                        <span> {{item.name}} </span> <span currencyMask>{{ getAllocationItemValue(item) | currency}}</span>
+                      </div>
+
+                      <div class="example-accordion-item-header" [attr.id]="'accordion-item-header-' + index" *ngIf="!isFirst" (click)="accordionItem.toggle()">
+                        <span> {{item.name}} </span> <span>{{ getAllocationItemValue(item) | currency }}</span>
+                      </div>
+                      <div
+                        class="example-accordion-item-body"
+                        role="region"
+                        [style.display]="accordionItem.expanded ? '' : 'none'"
+                        [attr.id]="'accordion-body-' + index"
+                        [attr.aria-labelledby]="'accordion-header-' + index">
+                        <ul class="">
+                            <li class="list-item" *ngFor="let children of item.children"> <span> - {{children}} </span></li>
+                        </ul>
+                      </div>
+                    </cdk-accordion-item>
+                  </cdk-accordion>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="allocation-chart-section" *ngIf="showAllocationChartSection">
+        <div id="allocation-chart" >
+            <!-- componentizar o chart -->
+            <div id="chart">
+                <app-chart chartType="doughnut"
+                    (labelSelected)="setChartLabelSelectedValue($event)"></app-chart>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer>
+        <div id="chart-button">
+            <button (click)="showAllocationChartSection = !showAllocationChartSection"> {{showAllocationChartSection ? 'exibir tabela' : 'exibir gráfico'}} </button>
+        </div>
+        <bottom-bar>
+        </bottom-bar>
+    </footer>
+</main>

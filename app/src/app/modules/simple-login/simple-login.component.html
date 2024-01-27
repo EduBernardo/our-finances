@@ -1,0 +1,16 @@
+<main>
+<h1 class="fading">
+    <p class="bold">Olá</p>
+    <p>quem está acessando?</p> 
+    
+</h1>
+
+<div id="buttons" class="fading">
+    <button type="button" *ngFor="let user of users" value= {{user.name}} (click)="setUser(user.id)">
+        <img src={{user.imgSrc}} alt="" srcset="">
+    </button>
+</div>
+
+</main>
+
+

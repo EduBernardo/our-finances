@@ -1,0 +1,139 @@
+@import '../../../styles.scss';
+
+h2{
+    margin-bottom: 0;
+    padding-left: 8px;
+    &>p{
+    margin-bottom: 0;
+
+    }
+}
+
+section {
+    margin-top: 2rem;
+}
+
+div#chart{
+    position: relative; 
+    top: 1rem;
+    align-items: center;
+}
+
+div#tree{
+    position: relative;
+    top: 2rem;
+}
+
+#scroll-area{
+    position: fixed;
+    padding: 0.5rem;
+    height:27vh;
+    overflow:scroll;
+    width: 80%;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+div#input-area {
+    padding: 1rem;
+    position: inherit;
+    border-radius: 17px;
+    border: solid #6ce5e8;
+}
+
+
+::ng-deep .example-form {
+    .mat-focused .mat-form-field-ripple {
+      /*change color of underline when focused*/
+      background-color: #6ce5e8 ;
+    }
+    .mat-focused .mat-form-field-label {
+      /*change color of label when focused*/
+      color: #6ce5e8 ;
+     }
+
+     .mat-form-field-label {
+        /*change color of label when focused*/
+        color: #6ce5e8 ;
+       }
+  }
+
+::ng-deep #slide-toggle {
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+        background-color:#6ce5e8;
+    }
+}
+
+div#submit-button,
+div#chart-button{
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+button {
+    border-radius: 17px;
+    background-color: transparent;
+    height: 2rem;
+    width: 40%;
+}
+
+div#chart-button{
+    margin-bottom: 1rem;
+}
+
+#distribution-area{
+    margin-top: -16px;
+    padding: 2rem 1rem 1rem 1rem;
+    border-radius: 0 0 17px 17px;
+    border: solid #6ce5e8;
+           
+}
+
+ul {
+    padding: 0;
+}
+li.list-item {
+    display: flex;
+    width: 90%;
+    height: 1.3rem;
+    padding: 0rem 1rem;
+    border-bottom: solid #757474 0.8px;
+    align-items: flex-end;
+}
+
+.example-accordion-item-header {
+    display: flex;
+    width: 90%;
+    height: 1.5rem;
+    padding: 0rem 1rem;
+    border-bottom: solid #4b4a4a 0.8px;
+    align-items: flex-end;
+    &>span:first-child {
+        flex: 70%;
+    }
+}
+
+.example-accordion-first-item-header{
+    display: flex;
+    width: 90%;
+    height: 1.3rem;
+    padding: 0rem 1rem;
+    border: dotted #000000 1px;
+    border-radius: 17px;
+    margin-bottom: 1rem;
+    &>span:first-child {
+        flex: 70%;
+    }
+}
+
+#accordion-item-header-1{
+margin-bottom: 2rem;
+border-bottom: solid #000000 1px;
+
+}
+
+
+

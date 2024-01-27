@@ -1,0 +1,5 @@
+<div>
+    <span *ngFor="let button of buttons" class="material-icons" (click)="emitButtonClicked(button.name)">
+        {{button.icon}}
+    </span>
+</div>
