@@ -1,3 +1,15 @@
-resource "aws_s3_bucket" "example" {
-  bucket = "our-finances-s3"
-}
+terraform {
+       backend "remote" {
+         organization = "our-finances"
+
+         workspaces {
+           name = "our-finances"
+         }
+       }
+     }
+
+     resource "null_resource" "example" {
+       triggers = {
+         value = "Iniciou o provisionamento!"
+       }
+     }
