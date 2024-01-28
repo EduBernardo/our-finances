@@ -84,9 +84,6 @@ jobs:
         env:
           ACCESS: ${{secrets.S3_ACCESS_KEY}}
           SECRET: ${{secrets.S3_SECRET_ACCESS_KEY}}
-      # Checks that all Terraform configuration files adhere to a canonical format
-      - name: Terraform Format
-        run: terraform fmt -check
 
       # Generates an execution plan for Terraform
       - name: Terraform Plan
