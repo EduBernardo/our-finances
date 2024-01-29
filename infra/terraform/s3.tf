@@ -1,15 +1,6 @@
-terraform {
-  backend "remote" {
-    organization = "our-finances"
-
-    workspaces {
-      name = "our-finances"
-    }
-  }
-}
 
 resource "aws_s3_bucket" "our-finances-s3" {
-  bucket = "our-finances-s3"
+  bucket = var.bucket_name
 }
 
 resource "aws_s3_bucket_website_configuration" "our-finances-s3" {
@@ -58,12 +49,28 @@ resource "aws_s3_bucket_acl" "our-finances-s3" {
   acl    = "public-read"
 }
 
+resource "aws_s3_bucket_policy" "our-finances-s3" {
+  bucket = aws_s3_bucket.our-finances-s3.id
 
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Id      = "AllowGetObjects"
+    Statement = [
+      {
+        Sid       = "AllowPublic"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource  = "${aws_s3_bucket.our-finances-s3.arn}/**"
+      }
+    ]
+  })
+}
 
 
 # s3 static website url
 output "website_url" {
-  value = "http://${aws_s3_bucket.our-finances-s3.bucket}.s3-website.sa-east-1.amazonaws.com"
+  value = "http://${aws_s3_bucket.our-finances-s3.bucket}.s3-website.${var.region}.amazonaws.com"
 }
 
 
