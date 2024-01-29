@@ -42,6 +42,6 @@ jobs:
       
       - name: Deploy
         if: success()
-        run: ls && aws s3 sync .app/dist s3://our-finances-app
+        run: cd app/ && ls &&  aws s3 sync ./dist s3://our-finances-app
 
 
