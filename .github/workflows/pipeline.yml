@@ -2,13 +2,13 @@
 name: DevSecOps Pipeline
 
 # Evento que irá acionar a pipeline
-on: 
+on:
   push:
     branches:
       - develop
 
 jobs:
-  Deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -19,22 +19,32 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name:  Setup Node
+      - name: Build
         uses: actions/setup-node@v2
         with:
           node-version: 20
+      - run: cd /app
+      - run: npm run build:prod
 
-      #- name: Install dependencies
-      #  run: npm install
+      - uses: actions/upload-artifact@v3
+        with:
+          name: app-build
+          path: app/dist
 
-      # - name: Run tests
-      #   run: npm run test:headless
 
-      - name: Build
-        run: npm run build:prod
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      # 👇 Get the dist folder
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: app-build
+      - run: ls dist
 
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -46,3 +56,5 @@ jobs:
       - name: Deploy
         if: success()
         run: aws s3 sync ./dist s3://our-finances-app
+
+
