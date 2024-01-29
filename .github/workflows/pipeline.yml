@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'app'
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -28,10 +31,10 @@ jobs:
           node-version: 20
 
       - name: Install npm dependencies
-        run: cd app/ && npm install --force
+        run: npm install --force
 
       - name: Build
-        run: cd app/ && npm run build:prod
+        run: npm run build:prod
 
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -42,6 +45,6 @@ jobs:
       
       - name: Deploy
         if: success()
-        run: cd app/ && ls &&  aws s3 sync ./dist s3://our-finances-app
+        run: aws s3 sync ./dist s3://our-finances-app
 
 
