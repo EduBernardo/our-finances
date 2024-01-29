@@ -26,13 +26,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: ls
 
       - name: Install npm dependencies
         run: cd app/ && npm install --force
 
       - name: Build
-        run: npm run build:prod
+        run: cd app/ && npm run build:prod
 
       - uses: actions/upload-artifact@v3
         with:
