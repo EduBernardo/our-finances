@@ -2,45 +2,59 @@
 name: DevSecOps Pipeline
 
 # Evento que irá acionar a pipeline
-on: 
+on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
-  Deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name:  Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v4
         with:
-          node-version: 16
+          fetch-depth: 0
 
-      - name: Install dependencies
-        run: npm install
-
-      # - name: Run tests
-      #   run: npm run test:headless
+     # - name: SonarCloud Scan
+      #  uses: SonarSource/sonarcloud-github-action@master
+       # env:
+        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+         # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Build
-        run: npm run build:prod
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+      - run: ls
+      - run: cd app/ && npm run build:prod
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: app-build
+          path: app/dist
+
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      # 👇 Get the dist folder
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: app-build
+      - run: ls dist
 
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.S3_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.S3_SECRET_ACCESS_KEY }}
           aws-region: sa-east-1
       
       - name: Deploy
         if: success()
         run: aws s3 sync ./dist s3://our-finances-app
+
+
