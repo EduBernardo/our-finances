@@ -33,23 +33,6 @@ jobs:
       - name: Build
         run: cd app/ && npm run build:prod
 
-      - uses: actions/upload-artifact@v3
-        with:
-          name: app-build
-          path: app/dist
-
-
-  deploy:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      # 👇 Get the dist folder
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: app-build
-      - run: ls dist
-
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
