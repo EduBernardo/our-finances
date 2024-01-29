@@ -1,6 +1,9 @@
-![icon-72x72](https://github.com/EduBernardo/our-finances/assets/39711522/2c6b2a7b-fd3b-4495-884e-d2204c43d9aa)
 
 [![DevSecOps Pipeline](https://github.com/EduBernardo/our-finances/actions/workflows/pipeline.yml/badge.svg?branch=main)](https://github.com/EduBernardo/our-finances/actions/workflows/pipeline.yml)
+
+![icon-72x72](https://github.com/EduBernardo/our-finances/assets/39711522/2c6b2a7b-fd3b-4495-884e-d2204c43d9aa)
+
+
 # OurFinances
 This project was build to help families to organize their finances, based in a clean and simple interface.
 
