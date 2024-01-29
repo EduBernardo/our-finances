@@ -46,7 +46,7 @@ resource "aws_s3_bucket_acl" "our-finances-s3" {
   ]
 
   bucket = aws_s3_bucket.our-finances-s3.id
-  acl    = "public"
+  acl    = "public-read"
 }
 
 
