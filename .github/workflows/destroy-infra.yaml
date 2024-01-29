@@ -1,0 +1,42 @@
+name: "[INFRA]"
+
+on:
+  push:
+    branches: ["destroy-infra"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      TF_VAR_aws_access_key: ${{ secrets.S3_ACCESS_KEY }}
+      TF_VAR_aws_secret_key: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./infra/terraform
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan -input=false
+
+      - name: Terraform Apply
+        run:  terraform apply -auto-approve -input=false
+

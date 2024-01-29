@@ -32,7 +32,6 @@ resource "aws_s3_bucket_versioning" "our-finances-s3" {
 }
 
 # S3 bucket ACL access
-
 resource "aws_s3_bucket_ownership_controls" "our-finances-s3" {
   bucket = aws_s3_bucket.our-finances-s3.id
   rule {
@@ -63,7 +62,6 @@ resource "aws_s3_bucket_acl" "our-finances-s3" {
 
 
 # s3 static website url
-
 output "website_url" {
   value = "http://${aws_s3_bucket.our-finances-s3.bucket}.s3-website.sa-east-1.amazonaws.com"
 }
