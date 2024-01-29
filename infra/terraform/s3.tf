@@ -33,10 +33,10 @@ resource "aws_s3_bucket_ownership_controls" "our-finances-s3" {
 resource "aws_s3_bucket_public_access_block" "our-finances-s3" {
   bucket = aws_s3_bucket.our-finances-s3.id
 
-  block_public_acls       = false
-  block_public_policy     = false
-  ignore_public_acls      = false
-  restrict_public_buckets = false
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 resource "aws_s3_bucket_acl" "our-finances-s3" {
@@ -46,25 +46,7 @@ resource "aws_s3_bucket_acl" "our-finances-s3" {
   ]
 
   bucket = aws_s3_bucket.our-finances-s3.id
-  acl    = "public-read"
-}
-
-resource "aws_s3_bucket_policy" "our-finances-s3" {
-  bucket = aws_s3_bucket.our-finances-s3.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Id      = "AllowGetObjects"
-    Statement = [
-      {
-        Sid       = "AllowPublic"
-        Effect    = "Allow"
-        Principal = "*"
-        Action    = "s3:GetObject"
-        Resource  = "${aws_s3_bucket.our-finances-s3.arn}/**"
-      }
-    ]
-  })
+  acl    = "private"
 }
 
 
