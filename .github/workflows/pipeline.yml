@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 20
       - run: ls
-      - run: cd /app
+      - run: cd app/
       - run: npm run build:prod
 
       - uses: actions/upload-artifact@v3
