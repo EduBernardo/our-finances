@@ -5,7 +5,7 @@ name: DevSecOps Pipeline
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
