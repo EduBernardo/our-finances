@@ -1,4 +1,4 @@
-name: "[INFRA]"
+name: "Destroy Infra"
 
 on:
   push:
