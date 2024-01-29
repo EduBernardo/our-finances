@@ -1,6 +1,6 @@
 locals {
   s3_origin_id   = "${var.bucket_name}-origin"
-  s3_domain_name = "${var.bucket_name}.s3-website-${var.region}.amazonaws.com"
+  s3_domain_name = aws_s3_bucket.our-finances-s3.bucket_domain_name
 }
 
 resource "aws_cloudfront_origin_access_identity" "this" {
