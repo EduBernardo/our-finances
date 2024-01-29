@@ -49,6 +49,23 @@ resource "aws_s3_bucket_acl" "our-finances-s3" {
   acl    = "public-read"
 }
 
+data "aws_iam_policy_document" "s3_policy" {
+  statement {
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.our-finances-s3.arn}/*"]
+
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "this" {
+  bucket = aws_s3_bucket.our-finances-s3.id
+  policy = data.aws_iam_policy_document.s3_policy.json
+}
+
 
 # s3 static website url
 output "website_url" {
