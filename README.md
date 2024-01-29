@@ -2,7 +2,7 @@
 
 
 # OurFinances
-This project was made it to help families to organize their finances, based in a clean and simple interface.
+This project was build to help families to organize their finances, based in a clean and simple interface.
 
 ## Link to acess
 
