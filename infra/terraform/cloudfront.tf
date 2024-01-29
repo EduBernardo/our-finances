@@ -8,7 +8,6 @@ resource "aws_cloudfront_origin_access_identity" "this" {
 }
 
 resource "aws_cloudfront_distribution" "this" {
-
   enabled = true
 
   origin {
@@ -17,13 +16,6 @@ resource "aws_cloudfront_distribution" "this" {
 
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.this.cloudfront_access_identity_path
-    }
-
-    custom_origin_config {
-      http_port              = 80
-      https_port             = 443
-      origin_protocol_policy = "http-only"
-      origin_ssl_protocols   = ["TLSv1"]
     }
   }
 
