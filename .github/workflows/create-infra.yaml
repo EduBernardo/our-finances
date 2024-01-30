@@ -2,7 +2,7 @@ name: "Create Infra"
 
 on:
   push:
-    branches: ["infra*"]
+    branches: ["create-infra"]
   pull_request:
 
 permissions:
